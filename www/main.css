@@ -1,0 +1,11 @@
+#content {
+    font-family: Consolas, monospace;
+}
+
+.section {
+    color: white;
+    background-color: rgba(25, 25, 25, 0.7);
+    border-radius:  5px;
+    padding:  5px;
+}
+

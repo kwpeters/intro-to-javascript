@@ -1,0 +1,3 @@
+Twitter Bootstrap version 3.0.0 (branch 3.0.0-wip)
+latest commit 26bc36107e
+https://github.com/twitter/bootstrap/commit/26bc36107edc54b685b6939807f9d41a09831606
