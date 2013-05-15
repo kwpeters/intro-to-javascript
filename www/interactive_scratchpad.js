@@ -440,25 +440,20 @@ clear();
 createSection('Constructor Invocation');
 
 
+var Animal = (function () {
+    function Animal() {
 
+        // Data members
+        // todo:  Define data members.
+        // this.name = 'Kevin';
+    }
 
+    // todo: If needed, set the prototype object.
+    // Animal.prototype = myPrototype;
 
+    // Member functions
+    // todo:  Define methods.
+    // Animal.prototype.myMethod = function () { };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return Animal;
+})();
