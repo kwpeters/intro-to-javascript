@@ -65,105 +65,106 @@
 //------------------------------------------------------------------------------
 // 15:25
 clear();
-appendSection('NaN');
+createSection('NaN');
 
-appendLine('NaN is the result of invalid operations:');
-appendExpression('0/0');
+log('NaN is the result of invalid operations:');
+logExpression('0/0');
 
-appendLine('NaN is toxic:');
-appendExpression('(NaN + 5) * 2 + 14');
+log('NaN is toxic:');
+logExpression('(NaN + 5) * 2 + 14');
 
-appendLine('NaN is not equal to anyting, including NaN:');
-appendExpression('Boolean(NaN === 5)');
-appendExpression('Boolean(NaN === NaN)');
-appendExpression('Boolean(NaN == NaN)');
+log('NaN is not equal to anyting, including NaN:');
+logExpression('Boolean(NaN === 5)');
+logExpression('Boolean(NaN === NaN)');
+logExpression('Boolean(NaN == NaN)');
 
 // The type of NaN is number.
-appendLine('The type of NaN is "number":');
-appendExpression('typeof NaN');
+log('The type of NaN is "number":');
+logExpression('typeof NaN');
 
 
 //------------------------------------------------------------------------------
 // 16:39
 clear();
-appendSection('Number()');
+createSection('Number()');
 
-appendLine('Number() can be used to convert a string into a number:');
-appendExpression('Number("100")');
+log('Number() can be used to convert a string into a number:');
+logExpression('Number("100")');
 
-appendLine('Number() returns NaN if it has a problem:');
-appendExpression('Number("Hello")');
+log('Number() returns NaN if it has a problem:');
+logExpression('Number("Hello")');
 
-appendLine('ParseInt() is similar, but also allows you to specify a radix:');
-appendSection('parseInt(value, radix)');
-appendExpression('parseInt("08")');
-appendExpression('parseInt("20", 16)');
-appendExpression('parseInt("0x20", 16)');
+log('ParseInt() is similar, but also allows you to specify a radix:');
+createSection('parseInt(value, radix)');
+logExpression('parseInt("08")');
+logExpression('parseInt("20", 16)');
+logExpression('parseInt("0x20", 16)');
 
 //------------------------------------------------------------------------------
 // 17:12
 clear();
-appendSection('Math Object');
+createSection('Math Object');
 
-appendExpression('Math.abs(+10)');
-appendExpression('Math.abs(-10)');
-appendExpression('Math.floor(1)');
-appendExpression('Math.floor(1.8)');
-appendExpression('Math.max(1.1, 2.2, 3.3, 4.4, 5.5)');
-appendExpression('Math.random()');
-appendExpression('Math.round(1.4)');
-appendExpression('Math.round(1.5)');
+logExpression('Math.abs(+10)');
+logExpression('Math.abs(-10)');
+logExpression('Math.floor(1)');
+logExpression('Math.floor(1.8)');
+logExpression('Math.max(1.1, 2.2, 3.3, 4.4, 5.5)');
+logExpression('Math.random()');
+logExpression('Math.round(1.4)');
+logExpression('Math.round(1.5)');
 
 
 //------------------------------------------------------------------------------
 // 20:33
 clear();
-appendSection('undefined');
+createSection('undefined');
 
-appendLine('undefined means "what you are asking for does not exist."');
+log('undefined means "what you are asking for does not exist."');
 
-appendLine('undefined is the default value of uninitialized variables:');
+log('undefined is the default value of uninitialized variables:');
 var myUndefined;
-appendLine(myUndefined);
+log(myUndefined);
 
-appendLine('myUndefined is now set to 5:');
+log('myUndefined is now set to 5:');
 myUndefined = 5;
-appendLine(myUndefined);
+log(myUndefined);
 
-appendLine('myUndefined is now set back to undefined (debatable whether this should be allowed):');
+log('myUndefined is now set back to undefined (debatable whether this should be allowed):');
 myUndefined = undefined;
-appendLine(myUndefined);
+log(myUndefined);
 
-appendSection('null');
+createSection('null');
 
-appendLine('null means "what you are asking for exists, but has no value."');
+log('null means "what you are asking for exists, but has no value."');
 var value = null;
-appendLine(value);
+log(value);
 value = 5;
-appendLine(value);
+log(value);
 value = null;
-appendLine(value);
+log(value);
 
 //------------------------------------------------------------------------------
 // 20:11
 clear();
-appendSection('Falsy Values');
-appendExpression('Boolean(false)');
-appendExpression('Boolean(null)');
-appendExpression('Boolean(undefined)');
-appendExpression('Boolean("")');
-appendExpression('Boolean(0)');
-appendExpression('Boolean(NaN)');
+createSection('Falsy Values');
+logExpression('Boolean(false)');
+logExpression('Boolean(null)');
+logExpression('Boolean(undefined)');
+logExpression('Boolean("")');
+logExpression('Boolean(0)');
+logExpression('Boolean(NaN)');
 
-appendSection('Truthy Values');
-appendExpression('Boolean("false")');
-appendExpression('Boolean("0")');
+createSection('Truthy Values');
+logExpression('Boolean("false")');
+logExpression('Boolean("0")');
 
 
 //------------------------------------------------------------------------------
 // 22:55
 clear();
-appendSection('Objects are Hashtables');
+createSection('Objects are Hashtables/Maps/Dictionaries!!!');
+log('(Objects are nothing more than containers of name-value pairs!)');
 
 // Note this object literal syntax:
 //     - wrapped in {}
@@ -175,65 +176,289 @@ var fred = {
     lastName:   'Flintstone'
 };
 
-appendLine('Values can be retrieved using subscript syntax or object "dot" notation:');
-appendLine('fred["firstName"] = ' + fred["firstName"]);
-appendLine('fred["lastName"] = ' + fred["lastName"]);
-appendLine('fred.firstName = ' + fred.firstName);
-appendLine('fred.lastName = ' + fred.lastName);
+log('Values can be retrieved using subscript syntax or object "dot" notation:');
+log('fred["firstName"] = ' + fred["firstName"]);
+log('fred["lastName"] = ' + fred["lastName"]);
+log('fred.firstName = ' + fred.firstName);
+log('fred.lastName = ' + fred.lastName);
+log('The only time you must use subscript notation is when the key string contains a space.');
+
+// This is an empty object.
+var emptyObj = {};
 
 
 //------------------------------------------------------------------------------
 // 23:26
 clear();
-appendSection('Loosley Typed');
+createSection('Loosley Typed');
 
-// There is no type associated with the parameters or return value.
+// There is no type associated with variables, parameters or return values.
 // Note:  This kind of operator overloading in a loosely typed language is a
 //        mistake.  You would not write anything like this in practice.
 function plusOperator(a, b) {
     return a + b;
 }
 
-appendLine('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
-appendLine('plusOperator(2, 3) = ' + plusOperator(2, 3));
+log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
+log('plusOperator(2, 3) = ' + plusOperator(2, 3));
+
 
 //------------------------------------------------------------------------------
 // 28:20
 clear();
-appendSection('Equality Operators');
+createSection('Equality Operators');
 
-appendLine('== coerces to the same type then compares the values:');
-appendExpression('5 == 5');
-appendExpression('"5" == 5');
+log('== coerces to the same type then compares the values:');
+logExpression('5 == 5');
+logExpression('"5" == 5');
 
-appendLine('=== compares both the type (without coercion) and value:');
-appendExpression('5 === 5');
-appendExpression('"5" === 5');
+log('=== compares both the type (without coercion) and value:');
+logExpression('5 === 5');
+logExpression('"5" === 5');
+
+log('Just use === and !==.');
+
+
+//------------------------------------------------------------------------------
+// 42:00
+clear();
+createSection('"Maker" Functions');
+
+// An example of a "maker" function.
+function makePerson(firstName, lastName) {
+
+    // Create an empty object.
+    var thePerson = {};
+
+    // Augment the object with its properties.
+    thePerson.firstName = firstName;
+    thePerson.lastName = lastName;
+
+    return thePerson;
+}
+
+// Now, create some objects.
+var fred = makePerson('Fred', 'Flintstone');
+var barney = makePerson('Barney', 'Rubble');
 
 
 //------------------------------------------------------------------------------
 // 45:20
 clear();
-appendSection('Object Augmentation');
+createSection('Object Augmentation');
 
 var barney = {
     firstName: 'Barney',
     lastName:  'Rubble'
 };
-appendObject('barney', barney);
+logObject('barney', barney);
 
 // When you need more properties, there is no need to create another class.
 // Just add the property to the hashtable!!!
 barney.pet = 'Hoppy the hopparoo';
-appendObject('barney', barney);
+logObject('barney', barney);
 
-appendSection('Property Deletion');
+createSection('Property Deletion');
 
 delete barney.lastName;
-appendObject('barney', barney);
+logObject('barney', barney);
 
 
 //------------------------------------------------------------------------------
-// xx:xx
+// 47:43
 clear();
-appendSection('Linkage/Inheritance');
+createSection('Linkage/Prototypal Inheritance');
+
+var base = {
+    myInteger: 1,    
+};
+
+var derived = Object.create(base);
+logObject('base', base);
+logObject('derived', derived);
+
+
+// When you ask derived for the myInteger property, it will not be found in
+// derived, so it will follow the "secret link" to its prototype (base).  It
+// will find a property named myInteger in base.  This is called "following
+// the prototype chain."
+log(derived.myInteger);
+
+// The prototype chain does not come into play at all when assigning to
+// properties.  The object referenced receives the property.
+derived.myInteger = 17;
+log(derived.myInteger);
+log(base.myInteger);
+logObject('base', base);
+logObject('derived', derived);
+
+
+//------------------------------------------------------------------------------
+// 54:02
+createSection('Property Deletion');
+
+// Remove the myInteger property in derived.
+delete derived.myInteger;
+logObject('derived', derived);
+
+// Now, when the myInteger property is asked for we will once again follow the
+// prototype chain and find it in base.
+log(derived.myInteger);
+
+
+//------------------------------------------------------------------------------
+// 1:07:45
+clear();
+createSection('Functions are Objects');
+
+// Functions are objects.
+// This means that...
+
+// 1.  Functions can be used as values.
+var speak = function () {
+    return 'yabba dabba doo!';
+};
+log(speak());
+
+// Because functions are values, they can be used anywhere a normal value
+// can be used.  For example, they can be passed as a parameter to another
+// function...
+var doSomething = function(action) {
+    var result = action();
+    return result;
+};
+log(doSomething(speak));
+
+// 2.  Functions are also containers of name/value pairs.
+speak.priority = 5;
+logObject('speak', speak);
+log(speak());
+
+// Scope:
+// Functions can be nested.
+// An inner function has access to the variables and parameters of
+// functions that it is contained within.
+// Closure:  When an inner function holds references to variables in an outer
+// scope, that outer scope will continue to exist as long as it is referenced
+// by the inner scope.
+
+var ignition = {
+    turnOn:  function () {log('Ignition on.' );},
+    turnOff: function () {log('Ignition off.');}
+};
+
+var changeOil = function(ignition) {
+
+    // Will close over the ignition variable in outer scope.    
+    var stopEngine = function () {
+        ignition.turnOff();
+    };
+    
+    // Will close over the ignition variable in outer scope.
+    var startEngine = function () {
+        ignition.turnOn();
+    };
+    
+    stopEngine();
+    log('Changing the oil... Done.');
+    startEngine();
+
+};
+
+changeOil(ignition);
+
+//------------------------------------------------------------------------------
+// 1:10:48
+clear();
+createSection('Method and Function Forms of Invocation');
+
+function makeSiren(volume) {
+    var theSiren = {};
+    theSiren.volume = volume;
+    theSiren.goOff = function () {
+        if (this.volume < 33) {
+            log('beep, beep, beep!');
+        }
+        else if (this.volume < 66) {
+            log('honk, honk, honk!');
+        }
+        else {
+            log('ahoooooga, ahooooooga, ahooooooga!');
+        }
+    };
+    
+    return theSiren;
+}
+
+var low  = makeSiren(15);
+var med  = makeSiren(50);
+var high = makeSiren(90);
+
+// This is the method form of invocation.
+// The "this" parameter is implied to be the object to the left of the . operator.
+low.goOff();
+med.goOff();
+high.goOff();
+
+// In the function form, "this" is bound to the global object, which is of no use.
+// So you must create a closure around a local variable to get access to "this."
+function makeSiren(volume) {
+    var theSiren = {};
+    theSiren.volume = volume;
+    theSiren.goOff = function () {
+        
+        var self = this;
+    
+        // A nested helper function that closes over "self" in outer scope.
+        // Some call this variable "that."
+        var goOffImpl = function () {
+            var sound;            
+            if (self.volume < 33)      {sound = 'beep';}
+            else if (self.volume < 66) {sound = 'honk';}
+            else                       {sound = 'ahoooooga';}
+        
+            log(sound + ', ' + sound + ', ' + sound);
+        };
+    
+        goOffImpl();
+    };
+    
+    return theSiren;
+}
+
+var low  = makeSiren(15);
+var med  = makeSiren(50);
+var high = makeSiren(90);
+low.goOff();
+med.goOff();
+high.goOff();
+
+
+//------------------------------------------------------------------------------
+// 1:10:48
+clear();
+createSection('Constructor Invocation');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

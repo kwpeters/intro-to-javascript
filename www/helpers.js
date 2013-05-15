@@ -2,13 +2,8 @@
 // Some helper methods that will be used in this interactive demo.
 //
 
-function appendLine(text) {
+function log(text) {
     $('#content').append(text + '<br>');
-}
-
-
-function appendHr() {
-    $('#content').append('<hr>');
 }
 
 function clear() {
@@ -16,16 +11,16 @@ function clear() {
 }
 
 
-function appendSection(heading) {
+function createSection(heading) {
     $('#content').append('<h2 class="section">' + heading + '</h2>');
 }
 
-function appendExpression(expression) {
-    appendLine(expression + ' is ' + eval(expression));
+function logExpression(expression) {
+    log(expression + ' is ' + eval(expression));
 }
 
-function appendObject(name, theObject) {
-    appendLine(name + ':');
+function logObject(name, theObject) {
+    log(name + ':');
     for (var key in theObject) {
         if (theObject.hasOwnProperty(key)) {
             $('#content').append('&nbsp;&nbsp;&nbsp;&nbsp;' + key + ': ' + theObject[key] + '<br>');
