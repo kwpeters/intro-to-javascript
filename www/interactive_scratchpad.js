@@ -334,6 +334,24 @@ speak.priority = 5;
 logObject('speak', speak);
 log(speak());
 
+//
+// Here's something different...
+//
+var speakFunc = function () {
+    // Note:  This function uses "this."  It is assumed that this function
+    //        will be bound to an object and called as a method on that object.
+    log('Hello, my name is ' + this.name + '.');
+};
+
+var wilma = {name: 'Wilma'};
+wilma.speak = speakFunc;
+wilma.speak();
+
+var betty = {name: 'Betty'};
+betty.speak = wilma.speak;
+betty.speak();
+
+
 // Scope:
 // Functions can be nested.
 // An inner function has access to the variables and parameters of
@@ -426,9 +444,9 @@ function makeSiren(volume) {
     return theSiren;
 }
 
-var low  = makeSiren(15);
-var med  = makeSiren(50);
-var high = makeSiren(90);
+low  = makeSiren(15);
+med  = makeSiren(50);
+high = makeSiren(90);
 low.goOff();
 med.goOff();
 high.goOff();
@@ -438,7 +456,6 @@ high.goOff();
 // 1:10:48
 clear();
 createSection('Constructor Invocation');
-
 
 var Animal = (function () {
     function Animal() {
@@ -457,3 +474,4 @@ var Animal = (function () {
 
     return Animal;
 })();
+
