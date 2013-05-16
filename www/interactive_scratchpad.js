@@ -255,6 +255,7 @@ logObject('barney', barney);
 
 // When you need more properties, there is no need to create another class.
 // Just add the property to the hashtable!!!
+// This is similar to the way in COM you query for interfaces!
 barney.pet = 'Hoppy the hopparoo';
 logObject('barney', barney);
 
