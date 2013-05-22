@@ -271,7 +271,7 @@ clear();
 createSection('Linkage/Prototypal Inheritance');
 
 var base = {
-    myInteger: 1,    
+    myInteger: 1
 };
 
 var derived = Object.create(base);
@@ -325,8 +325,7 @@ log(speak());
 // can be used.  For example, they can be passed as a parameter to another
 // function...
 var doSomething = function(action) {
-    var result = action();
-    return result;
+    return action();
 };
 log(doSomething(speak));
 
