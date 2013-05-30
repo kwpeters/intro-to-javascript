@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to JavaScript</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+    <script src="lib/jquery.js"></script>
+    <script src="lib/ace.js"></script>
+    <script src="lib/codeblock/codeblock.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="introtojs.js"></script>
+
+
+    <div class="well">
+        <h1>Introduction to JavaScript</h1>
+
+        <p class="lead">
+            Based on Douglas Crockford's presentation
+            <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">
+                The JavaScript Programming Language
+            </a>.
+        </p>
+    </div>
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>9:53<p>
+            <h2>Correction</h2>
+        </div>
+
+        <div class="example">
+            <p>He meant to say that <em>Microsoft</em> copied the design mistakes, not <em>Sun Microsystems</em>.</p>
+        </div>
+    </div>
+
+    <!-- ******************************************************************* -->
+
+    <div class="section">
+        <div class="section-heading">
+            <p>15:25</p>
+            <h2>NaN</h2>
+        </div>
+
+        <div class="example">
+            <p>NaN is the result of invalid operations.</p>
+            <div class="codeblock">
+                console.log('0/0 is ' + 0/0);
+            </div>
+        </div>
+        <div class="example">
+            <p>NaN is toxic.</p>
+            <div class="codeblock">
+                console.log('(NaN + 5) * 2 + 14 is ' + ((NaN + 5) * 2 + 14));
+            </div>
+        </div>
+        <div class="example">
+            <p>NaN is not equal to anything, including NaN.</p>
+            <div class="codeblock">
+                console.log('Boolean(NaN === 5) is ' + Boolean(NaN === 5));
+console.log('Boolean(NaN === NaN) is ' + Boolean(NaN === NaN));
+console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
+            </div>
+        </div>
+        <div class="example">
+            <p>The type of NaN is number.</p>
+            <div class="codeblock">
+                console.log('typeof NaN is ' + typeof NaN);
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ******************************************************************* -->
+
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+
+</body>
+</html>
