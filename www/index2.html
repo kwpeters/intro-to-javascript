@@ -79,9 +79,500 @@ console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
         </div>
     </div>
 
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>16:39</p>
+            <h2>Number()</h2>
+        </div>
+
+        <div class="example">
+            <p>Number() can be used to convert a string into a number.</p>
+            <div class="codeblock">
+                console.log('Number("100") is ' + Number("100"));
+            </div>
+        </div>
+        <div class="example">
+            <p>Number() returns NaN if it has a problem.</p>
+            <div class="codeblock">
+                console.log('Number("hello") is ' + Number("hello"));
+            </div>
+        </div>
+        <div class="example">
+            <p>ParseInt() is similar, but also allows you to (optionally) specify a radix.</p>
+            <p>Note:  When the string starts with "0x" and no radix is specified, a radix of 16
+                is assumed.  When the string starts with a "0" and no radix is specified, a
+                radix of 10 is used.
+            </p>
+            <div class="codeblock">
+                console.log('parseInt("8") is ' + parseInt("8"));
+console.log('parseInt("08") is ' + parseInt("08"));
+console.log('parseInt("0x10") is ' + parseInt("0x10"));
+console.log('parseInt("10", 16) is ' + parseInt("10", 16));
+            </div>
+        </div>
+    </div>
+
+
+    logExpression('Math.abs(+10)');
+    logExpression('Math.abs(-10)');
+    logExpression('Math.floor(1)');
+    logExpression('Math.floor(1.8)');
+    logExpression('Math.max(1.1, 2.2, 3.3, 4.4, 5.5)');
+    logExpression('Math.random()');
+    logExpression('Math.round(1.4)');
+    logExpression('Math.round(1.5)');
+
 
     <!-- ******************************************************************* -->
 
+    <div class="section">
+        <div class="section-heading">
+            <p>17:12</p>
+            <h2>Math object</h2>
+        </div>
+
+        <div class="example">
+            <p>The Math object contains the usual suspects.</p>
+            <div class="codeblock">
+console.log('Math.abs(+10) is ' + Math.abs(+10));
+console.log('Math.abs(-10) is ' + Math.abs(-10));
+console.log('Math.floor(1) is ' + Math.floor(1));
+console.log('Math.floor(1.8) is ' + Math.floor(1.8));
+console.log('Math.max(1.1, 2.2, 3.3, 4.4, 5.5) is ' + Math.max(1.1, 2.2, 3.3, 4.4, 5.5));
+console.log('Math.random() is ' + Math.random());
+console.log('Math.round(1.4) is ' + Math.round(1.4));
+console.log('Math.round(1.5) is ' + Math.round(1.5));
+            </div>
+        </div>
+    </div>
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>20:33</p>
+            <h2>undefined and null</h2>
+        </div>
+
+        <div class="example">
+            <p>undefined means "what you are asking for does not exist."</p>
+            <p>undefined is the default value of uninitialized variables.</p>
+            <div class="codeblock">
+var myUndefined;
+console.log('myUndefined is ' + myUndefined);
+myUndefined = 5;
+console.log('myUndefined is ' + myUndefined);
+myUndefined = undefined;   // Debatable whether this should be allowed.
+console.log('myUndefined is ' + myUndefined);
+            </div>
+        </div>
+        <div class="example">
+            <p>null means "what you are asking for exists, but has no value."</p>
+            <div class="codeblock">
+var value = null;
+console.log('value is ' + value);
+value = 5;
+console.log('value is ' + value);
+value = null;
+console.log('value is ' + value);
+            </div>
+        </div>
+    </div>
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>20:11</p>
+            <h2>Falsy and truthy values</h2>
+        </div>
+
+        <div class="example">
+            <p>The following are flasy values.</p>
+            <div class="codeblock">
+console.log('Boolean(false) is ' + Boolean(false));
+console.log('Boolean(null) is ' + Boolean(null));
+console.log('Boolean(undefined) is ' + Boolean(undefined));
+console.log('Boolean("") is ' + Boolean(""));
+console.log('Boolean(0) is ' + Boolean(0));
+console.log('Boolean(NaN) is ' + Boolean(NaN));
+            </div>
+        </div>
+        <div class="example">
+            <p>The following are truthy values.</p>
+            <div class="codeblock">
+console.log('Boolean("false") is ' + Boolean("false"));  // Only empty strings are false
+console.log('Boolean("0") is ' + Boolean("0"));          // Only empty strings are false
+            </div>
+        </div>
+    </div>
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>22:55</p>
+            <h2>Objects are hashtables/Maps/Dictionaries!!!</h2>
+        </div>
+
+        <div class="example">
+            <p>Objects are nothing more than containers of name-value pairs!</p>
+
+            <p>Object literal syntax:</p>
+            <ul>
+                <li>wrapped in <code>{ }</code></li>
+                <li>keys can be identifiers or strings (can contain spaces)</li>
+                <li><code>;</code> separates names from their value</li>
+                <li><code>,</code> separates the name-value pairs</li>
+            </ul>
+            <div class="codeblock">
+var fred = {
+    firstName:  'Fred',
+    lastName:   'Flintstone'
+};
+            </div>
+        </div>
+        <div class="example">
+            <p>Values can be retrieved using subscript syntax or object "dot" notation.</p>
+            <p>The only time you must use subscript notation is when the key string contains
+               spaces or is one of JS's reserved words.</p>
+            <div class="codeblock">
+var fred = {
+    firstName:  'Fred',
+    lastName:   'Flintstone'
+};
+console.log('fred["firstName"] is ' + fred["firstName"]);
+console.log('fred["lastName"] is ' + fred["lastName"]);
+console.log('fred.firstName is ' + fred.firstName);
+console.log('fred.lastName is ' + fred.lastName);
+            </div>
+        </div>
+        <div class="example">
+            <p>And this is how you create an empty object.</p>
+            <div class="codeblock">
+var emptyObj = {};
+            </div>
+        </div>
+    </div>
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>23:26</p>
+            <h2>Loose typing</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    // There is no type associated with variables, parameters or return values.
+    // Note:  This kind of operator overloading in a loosely typed language is a
+    //        mistake.  You would not write anything like this in practice.
+    function plusOperator(a, b) {
+    return a + b;
+    }
+
+    log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
+    log('plusOperator(2, 3) = ' + plusOperator(2, 3));
+
+
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+        <div class="example">
+            <p></p>
+            <div class="codeblock"></div>
+        </div>
+    </div>
+    <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
