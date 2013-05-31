@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="lib/codeblock/codeblock.css">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
 
@@ -25,8 +24,7 @@
 
         <p class="lead">
             Based on Douglas Crockford's presentation
-            <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">
-                The JavaScript Programming Language
+            <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language
             </a>.
         </p>
     </div>
@@ -34,8 +32,9 @@
     <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
-            <p>9:53<p>
-            <h2>Correction</h2>
+            <p>
+                9:53<p>
+                    <h2>Correction</h2>
         </div>
 
         <div class="example">
@@ -54,19 +53,19 @@
         <div class="example">
             <p>NaN is the result of invalid operations.</p>
             <div class="codeblock">
-                console.log('0/0 is ' + 0/0);
+console.log('0/0 is ' + 0/0);
             </div>
         </div>
         <div class="example">
             <p>NaN is toxic.</p>
             <div class="codeblock">
-                console.log('(NaN + 5) * 2 + 14 is ' + ((NaN + 5) * 2 + 14));
+console.log('(NaN + 5) * 2 + 14 is ' + ((NaN + 5) * 2 + 14));
             </div>
         </div>
         <div class="example">
             <p>NaN is not equal to anything, including NaN.</p>
             <div class="codeblock">
-                console.log('Boolean(NaN === 5) is ' + Boolean(NaN === 5));
+console.log('Boolean(NaN === 5) is ' + Boolean(NaN === 5));
 console.log('Boolean(NaN === NaN) is ' + Boolean(NaN === NaN));
 console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
             </div>
@@ -74,7 +73,7 @@ console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
         <div class="example">
             <p>The type of NaN is number.</p>
             <div class="codeblock">
-                console.log('typeof NaN is ' + typeof NaN);
+console.log('typeof NaN is ' + typeof NaN);
             </div>
         </div>
     </div>
@@ -89,23 +88,24 @@ console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
         <div class="example">
             <p>Number() can be used to convert a string into a number.</p>
             <div class="codeblock">
-                console.log('Number("100") is ' + Number("100"));
+console.log('Number("100") is ' + Number("100"));
             </div>
         </div>
         <div class="example">
             <p>Number() returns NaN if it has a problem.</p>
             <div class="codeblock">
-                console.log('Number("hello") is ' + Number("hello"));
+console.log('Number("hello") is ' + Number("hello"));
             </div>
         </div>
         <div class="example">
             <p>ParseInt() is similar, but also allows you to (optionally) specify a radix.</p>
-            <p>Note:  When the string starts with "0x" and no radix is specified, a radix of 16
+            <p>
+                Note:  When the string starts with "0x" and no radix is specified, a radix of 16
                 is assumed.  When the string starts with a "0" and no radix is specified, a
                 radix of 10 is used.
             </p>
             <div class="codeblock">
-                console.log('parseInt("8") is ' + parseInt("8"));
+console.log('parseInt("8") is ' + parseInt("8"));
 console.log('parseInt("08") is ' + parseInt("08"));
 console.log('parseInt("0x10") is ' + parseInt("0x10"));
 console.log('parseInt("10", 16) is ' + parseInt("10", 16));
@@ -113,19 +113,7 @@ console.log('parseInt("10", 16) is ' + parseInt("10", 16));
         </div>
     </div>
 
-
-    logExpression('Math.abs(+10)');
-    logExpression('Math.abs(-10)');
-    logExpression('Math.floor(1)');
-    logExpression('Math.floor(1.8)');
-    logExpression('Math.max(1.1, 2.2, 3.3, 4.4, 5.5)');
-    logExpression('Math.random()');
-    logExpression('Math.round(1.4)');
-    logExpression('Math.round(1.5)');
-
-
     <!-- ******************************************************************* -->
-
     <div class="section">
         <div class="section-heading">
             <p>17:12</p>
@@ -232,8 +220,10 @@ var fred = {
         </div>
         <div class="example">
             <p>Values can be retrieved using subscript syntax or object "dot" notation.</p>
-            <p>The only time you must use subscript notation is when the key string contains
-               spaces or is one of JS's reserved words.</p>
+            <p>
+                The only time you must use subscript notation is when the key string contains
+               spaces or is one of JS's reserved words.
+            </p>
             <div class="codeblock">
 var fred = {
     firstName:  'Fred',
@@ -248,7 +238,7 @@ console.log('fred.lastName is ' + fred.lastName);
         <div class="example">
             <p>And this is how you create an empty object.</p>
             <div class="codeblock">
-var emptyObj = {};
+                var emptyObj = {};
             </div>
         </div>
     </div>
@@ -261,343 +251,539 @@ var emptyObj = {};
         </div>
 
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-    </div>
-    // There is no type associated with variables, parameters or return values.
-    // Note:  This kind of operator overloading in a loosely typed language is a
-    //        mistake.  You would not write anything like this in practice.
-    function plusOperator(a, b) {
+            <p>
+                There is no type associated with variables, parameters or return
+                values.
+            </p>
+            <p>
+                Note:  The operator overloading shown below is not something you
+                would put in production code.
+            </p>
+            <div class="codeblock">
+function plusOperator(a, b) {
     return a + b;
-    }
+}
 
-    log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
-    log('plusOperator(2, 3) = ' + plusOperator(2, 3));
-
-
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+console.log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
+console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
+            </div>
         </div>
     </div>
+
     <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
+            <p>28:20</p>
+            <h2>Equality Operators</h2>
         </div>
 
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+                <code>==</code> coerces the arguments to the same type then
+                compares the values.
+            </p>
+            <div class="codeblock">
+console.log("5 == 5 is " + (5 == 5));
+console.log('"5" == 5 is ' + ("5" == 5));
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+                <code>===</code> first compares the types of the arguments
+                (without coercion).  If they are the same, it then compares the
+                values.
+            </p>
+            <div class="codeblock">
+console.log("5 === 5 is " + (5 === 5));
+console.log('"5" === 5 is ' + ("5" === 5));
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+                Conclusion:
+                <span class="text-danger">99.99% of the time, you will just want
+                    to stick with === and !==.</span>
+            </p>
         </div>
     </div>
+
     <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
+            <p>42:00</p>
+            <h2>"Maker" functions</h2>
         </div>
 
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
-        </div>
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>An example of a maker function:</p>
+            <div class="codeblock">
+                function makePerson(firstName, lastName) {
+
+    // Create an empty object.
+    var thePerson = {};
+
+    // Augment the object with its properties.
+    thePerson.firstName = firstName;
+    thePerson.lastName = lastName;
+
+    return thePerson;
+}
+
+// Now, create some objects.
+var fred = makePerson('Fred', 'Flintstone');
+var barney = makePerson('Barney', 'Rubble');
+
+console.log(fred.firstName + ' ' + fred.lastName);
+console.log(barney.firstName + ' ' + barney.lastName);
+            </div>
         </div>
     </div>
+
     <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
+
+</body>
+</html>
+
     <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
-
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
-    <!-- ******************************************************************* -->
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
     <div class="section">
         <div class="section-heading">
             <p>time</p>
             <h2>Heading</h2>
         </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+    </div>
 
-        <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
         <div class="example">
-            <p></p>
-            <div class="codeblock"></div>
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+        <!-- ******************************************************************* -->
+    <div class="section">
+        <div class="section-heading">
+            <p>time</p>
+            <h2>Heading</h2>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
+        </div>
+        <div class="example">
+            <p>
+            </p>
+            <div class="codeblock">
+            </div>
         </div>
     </div>
 
