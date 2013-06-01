@@ -571,7 +571,7 @@ herbie.changeOil();
         <h2>Method and function forms of invocation</h2>
     </div>
     <div class="example">
-        <p>There are two contexts in which a function can be invoked:
+        <p>There are three contexts in which a function can be invoked:
         </p>
         <ol>
             <li>in a <strong>function context</strong>. <br>
@@ -588,6 +588,9 @@ herbie.changeOil();
                 invoked in a function context, <code>this</code> will be set to
                 the global object and it is unlikely that you will get the
                 intended result.
+            </li>
+            <li>In a <strong>constructor context</strong> (using the new operator). <br>
+                This will be discussed in a minute.
             </li>
         </ol>
         <div class="codeblock">
@@ -625,13 +628,140 @@ myObj.sayHello();
 <!-- ******************************************************************* -->
 <div class="section">
     <div class="section-heading">
-        <p>time</p>
-        <h2>Heading</h2>
+        <p>1:10:48</p>
+        <h2>Constructor invocation</h2>
     </div>
     <div class="example">
+        <p>A function is invoked in a constructor context whenever it is
+            preceded by the <code>new</code> operator.
+        </p>
         <p>
+            By convention, constructor functions start with a capital letter <br>
+            This is your cue to know that it should be called using <code>new</code>.
+        </p>
+        <p>When a function is invoked in a constructor context, the following
+            happens:
+        </p>
+        <ol>
+            <li>
+                An empty object is created.
+            </li>
+            <li>The new object's <code>__proto__</code> property is set to the
+                constructor function's <code>prototype</code> property.
+            </li>
+            <li>The <code>this</code> variable is set to the newly created
+                object and the constructor function is invoked.
+            </li>
+        </ol>
+        <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+};
+
+// Usage.
+var fred = new Person('Fred');
+console.log(fred.firstName);
+
+var barney = new Person('Barney');
+console.log(barney.firstName);
+        </div>
+        <p>
+            In this example, each person object has its own firstName and
+            lastName properties.
+        </p>
+        <p>Would you want to give Person methods in the same manner?</p>
+        <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+    this.speak = function () {console.log('Hello, my name is ' + this.firstName + '.');};
+};
+
+// Usage.
+var fred = new Person('Fred');
+fred.speak();
+
+var barney = new Person('Barney');
+barney.speak();
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>No, this would be inefficient, because each instance would have its
+            own copy of <code>speak()</code>.
+        </p>
+        <p>We would rather have all instances share a single copy of
+            <code>speak()</code>.
+        </p>
+    </div>
+    <div class="example">
+        <p>The prototype is the place to put everything that is shared across
+            all instances of a type (all objects created from the same
+            constructor).
         </p>
         <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+};
+
+Person.prototype.speak = function () {console.log('Hello, my name is ' + this.firstName + '.');};
+
+// Usage.
+var fred = new Person('Fred');
+fred.speak();
+
+var barney = new Person('Barney');
+barney.speak();
+        </div>
+        <p>Now, when <code>speak()</code> is called, JS follows the prototype
+            chain up one level to the shared prototype, where it finds the
+            <code>speak</code> property whose value happens to be a function
+            object.
+        </p>
+    </div>
+    <div class="example">
+        <p>By default each constructor function is given its own empty
+            object that is assigned to the constructor's <code>prototype</code>
+            property.  This single object will serve as the prototype for all
+            objects created with that constructor.
+        </p>
+        <p>In order to reuse code, in some cases we don't want each constructor
+            to have the unique prototype object it is assigned by default.  In
+            order for several constructors to reference a common shared prototype,
+            we must set each constructor's <code>prototype</code> property to
+            that shared prototype.
+        </p>
+        <div class="codeblock">
+            var Vehicle = function () {
+                this.startEngine = function () {console.log('Engine started.');};
+                this.stopEngine  = function () {console.log('Engine stopped.');};
+            };
+
+            var Car = function () {
+                // ...
+            };
+            Car.prototype = new Vehicle();
+            Car.prototype.soundHorn = function () {console.log('Beep!  Beep!');};
+
+            var Truck = function () {
+                // ...
+            };
+            Truck.prototype = new Vehicle();
+            Truck.prototype.soundHorn = function () {console.log('Honk!  Honk!')};
+
+            var yugo = new Car();
+            yugo.startEngine();
+            yugo.soundHorn();
+            yugo.stopEngine();
+
+            var mac = new Truck();
+            mac.startEngine();
+            mac.soundHorn();
+            mac.stopEngine();
         </div>
     </div>
     <div class="example">
@@ -645,18 +775,47 @@ myObj.sayHello();
         </p>
         <div class="codeblock">
         </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
+
+
         <div class="codeblock">
+            var Person = function () {
+                // Note:  Because Person is intended to be used as a prototype,
+                // it should not contain any instance data.
+
+                // Because the prototype object is shared amongst all objects
+                // created with a specific constructor, you can think of it (in
+                // classical inheritance terms) as the place to put all static
+                // data members and all shared methods.
+            };
+
+            var Employee = function (employeeId) {
+                this.employeeId = employeeId;
+            };
+
+            // A single Person object will be created that will serve as the
+            // prototype for *all* Employee objects.
+            Employee.prototype = new Person();
         </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
         <div class="codeblock">
+var Animal = (function () {
+    function Animal() {
+
+        // Data members
+        // todo:  Define data members.
+        // this.name = 'Kevin';
+    }
+
+    // todo: If needed, set the prototype object.
+    // Animal.prototype = myPrototype;
+
+    // Member functions
+    // todo:  Define methods.
+    // Animal.prototype.myMethod = function () { };
+
+    return Animal;
+})();
         </div>
+
     </div>
 </div>
 
