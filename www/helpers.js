@@ -28,3 +28,14 @@ function logObject(name, theObject) {
         
     }
 }
+
+function objToString(name, theObject) {
+    var result = name + ':\n';
+    for (var key in theObject) {
+        if (theObject.hasOwnProperty(key)) {
+            result = result + '    ' + key + ': ' + theObject[key] + '\n';
+        }
+    }
+
+    return result;ß
+}

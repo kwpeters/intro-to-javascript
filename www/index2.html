@@ -1,128 +1,119 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Intro to JavaScript</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
 <body>
 
-    <script src="lib/jquery.js"></script>
-    <script src="lib/ace.js"></script>
-    <script src="lib/codeblock/codeblock.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script src="introtojs.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="lib/ace.js"></script>
+<script src="lib/codeblock/codeblock.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="introtojs.js"></script>
+<script src="helpers.js"></script>
 
 
-    <div class="well">
-        <h1>Introduction to JavaScript</h1>
+<div class="well">
+    <h1>Introduction to JavaScript</h1>
 
-        <p class="lead">
-            Based on Douglas Crockford's presentation
-            <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language
-            </a>.
-        </p>
+    <p class="lead">
+        Based on Douglas Crockford's presentation
+        <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language
+        </a>.
+    </p>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>
+            9:53<p>
+        <h2>Correction</h2>
     </div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>
-                9:53<p>
-                    <h2>Correction</h2>
-        </div>
+    <div class="example">
+        <p>He meant to say that <em>Microsoft</em> copied the design mistakes, not <em>Sun Microsystems</em>.</p>
+    </div>
+</div>
 
-        <div class="example">
-            <p>He meant to say that <em>Microsoft</em> copied the design mistakes, not <em>Sun Microsystems</em>.</p>
-        </div>
+<!-- ******************************************************************* -->
+
+<div class="section">
+    <div class="section-heading">
+        <p>15:25</p>
+        <h2>NaN</h2>
     </div>
 
-    <!-- ******************************************************************* -->
-
-    <div class="section">
-        <div class="section-heading">
-            <p>15:25</p>
-            <h2>NaN</h2>
-        </div>
-
-        <div class="example">
-            <p>NaN is the result of invalid operations.</p>
-            <div class="codeblock">
+    <div class="example">
+        <p>NaN is the result of invalid operations.</p>
+        <div class="codeblock">
 console.log('0/0 is ' + 0/0);
-            </div>
         </div>
-        <div class="example">
-            <p>NaN is toxic.</p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>NaN is toxic.</p>
+        <div class="codeblock">
 console.log('(NaN + 5) * 2 + 14 is ' + ((NaN + 5) * 2 + 14));
-            </div>
         </div>
-        <div class="example">
-            <p>NaN is not equal to anything, including NaN.</p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>NaN is not equal to anything, including NaN.</p>
+        <div class="codeblock">
 console.log('Boolean(NaN === 5) is ' + Boolean(NaN === 5));
 console.log('Boolean(NaN === NaN) is ' + Boolean(NaN === NaN));
 console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
-            </div>
-        </div>
-        <div class="example">
-            <p>The type of NaN is number.</p>
-            <div class="codeblock">
-console.log('typeof NaN is ' + typeof NaN);
-            </div>
         </div>
     </div>
-
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>16:39</p>
-            <h2>Number()</h2>
+    <div class="example">
+        <p>The type of NaN is number.</p>
+        <div class="codeblock">
+console.log('typeof NaN is ' + typeof NaN);
         </div>
+    </div>
+</div>
 
-        <div class="example">
-            <p>Number() can be used to convert a string into a number.</p>
-            <div class="codeblock">
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>16:39</p>
+        <h2>Number()</h2>
+    </div>
+
+    <div class="example">
+        <p>Number() can be used to convert a string into a number.</p>
+        <div class="codeblock">
 console.log('Number("100") is ' + Number("100"));
-            </div>
         </div>
-        <div class="example">
-            <p>Number() returns NaN if it has a problem.</p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>Number() returns NaN if it has a problem.</p>
+        <div class="codeblock">
 console.log('Number("hello") is ' + Number("hello"));
-            </div>
         </div>
-        <div class="example">
-            <p>ParseInt() is similar, but also allows you to (optionally) specify a radix.</p>
-            <p>
-                Note:  When the string starts with "0x" and no radix is specified, a radix of 16
-                is assumed.  When the string starts with a "0" and no radix is specified, a
-                radix of 10 is used.
-            </p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>ParseInt() is similar, but also allows you to (optionally) specify a radix.</p>
+        <p>
+            Note:  When the string starts with "0x" and no radix is specified, a radix of 16
+            is assumed.  When the string starts with a "0" and no radix is specified, a
+            radix of 10 is used.
+        </p>
+        <div class="codeblock">
 console.log('parseInt("8") is ' + parseInt("8"));
 console.log('parseInt("08") is ' + parseInt("08"));
 console.log('parseInt("0x10") is ' + parseInt("0x10"));
 console.log('parseInt("10", 16) is ' + parseInt("10", 16));
-            </div>
         </div>
     </div>
+</div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>17:12</p>
-            <h2>Math object</h2>
-        </div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>17:12</p>
+        <h2>Math object</h2>
+    </div>
 
-        <div class="example">
-            <p>The Math object contains the usual suspects.</p>
-            <div class="codeblock">
+    <div class="example">
+        <p>The Math object contains the usual suspects.</p>
+        <div class="codeblock">
 console.log('Math.abs(+10) is ' + Math.abs(+10));
 console.log('Math.abs(-10) is ' + Math.abs(-10));
 console.log('Math.floor(1) is ' + Math.floor(1));
@@ -131,100 +122,100 @@ console.log('Math.max(1.1, 2.2, 3.3, 4.4, 5.5) is ' + Math.max(1.1, 2.2, 3.3, 4.
 console.log('Math.random() is ' + Math.random());
 console.log('Math.round(1.4) is ' + Math.round(1.4));
 console.log('Math.round(1.5) is ' + Math.round(1.5));
-            </div>
         </div>
     </div>
+</div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>20:33</p>
-            <h2>undefined and null</h2>
-        </div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>20:33</p>
+        <h2>undefined and null</h2>
+    </div>
 
-        <div class="example">
-            <p>undefined means "what you are asking for does not exist."</p>
-            <p>undefined is the default value of uninitialized variables.</p>
-            <div class="codeblock">
+    <div class="example">
+        <p>undefined means "what you are asking for does not exist."</p>
+        <p>undefined is the default value of uninitialized variables.</p>
+        <div class="codeblock">
 var myUndefined;
 console.log('myUndefined is ' + myUndefined);
 myUndefined = 5;
 console.log('myUndefined is ' + myUndefined);
 myUndefined = undefined;   // Debatable whether this should be allowed.
 console.log('myUndefined is ' + myUndefined);
-            </div>
         </div>
-        <div class="example">
-            <p>null means "what you are asking for exists, but has no value."</p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>null means "what you are asking for exists, but has no value."</p>
+        <div class="codeblock">
 var value = null;
 console.log('value is ' + value);
 value = 5;
 console.log('value is ' + value);
 value = null;
 console.log('value is ' + value);
-            </div>
         </div>
     </div>
+</div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>20:11</p>
-            <h2>Falsy and truthy values</h2>
-        </div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>20:11</p>
+        <h2>Falsy and truthy values</h2>
+    </div>
 
-        <div class="example">
-            <p>The following are flasy values.</p>
-            <div class="codeblock">
+    <div class="example">
+        <p>The following are flasy values.</p>
+        <div class="codeblock">
 console.log('Boolean(false) is ' + Boolean(false));
 console.log('Boolean(null) is ' + Boolean(null));
 console.log('Boolean(undefined) is ' + Boolean(undefined));
 console.log('Boolean("") is ' + Boolean(""));
 console.log('Boolean(0) is ' + Boolean(0));
 console.log('Boolean(NaN) is ' + Boolean(NaN));
-            </div>
-        </div>
-        <div class="example">
-            <p>The following are truthy values.</p>
-            <div class="codeblock">
-console.log('Boolean("false") is ' + Boolean("false"));  // Only empty strings are false
-console.log('Boolean("0") is ' + Boolean("0"));          // Only empty strings are false
-            </div>
         </div>
     </div>
-
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>22:55</p>
-            <h2>Objects are hashtables/Maps/Dictionaries!!!</h2>
+    <div class="example">
+        <p>The following are truthy values.</p>
+        <div class="codeblock">
+console.log('Boolean("false") is ' + Boolean("false"));  // Only empty strings are false
+console.log('Boolean("0") is ' + Boolean("0"));          // Only empty strings are false
         </div>
+    </div>
+</div>
 
-        <div class="example">
-            <p>Objects are nothing more than containers of name-value pairs!</p>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>22:55</p>
+        <h2>Objects are hashtables/Maps/Dictionaries!!!</h2>
+    </div>
 
-            <p>Object literal syntax:</p>
-            <ul>
-                <li>wrapped in <code>{ }</code></li>
-                <li>keys can be identifiers or strings (can contain spaces)</li>
-                <li><code>;</code> separates names from their value</li>
-                <li><code>,</code> separates the name-value pairs</li>
-            </ul>
-            <div class="codeblock">
+    <div class="example">
+        <p>Objects are nothing more than containers of name-value pairs!</p>
+
+        <p>Object literal syntax:</p>
+        <ul>
+            <li>wrapped in <code>{ }</code></li>
+            <li>keys can be identifiers or strings (can contain spaces)</li>
+            <li><code>;</code> separates names from their value</li>
+            <li><code>,</code> separates the name-value pairs</li>
+        </ul>
+        <div class="codeblock">
 var fred = {
     firstName:  'Fred',
     lastName:   'Flintstone'
 };
-            </div>
         </div>
-        <div class="example">
-            <p>Values can be retrieved using subscript syntax or object "dot" notation.</p>
-            <p>
-                The only time you must use subscript notation is when the key string contains
-               spaces or is one of JS's reserved words.
-            </p>
-            <div class="codeblock">
+    </div>
+    <div class="example">
+        <p>Values can be retrieved using subscript syntax or object "dot" notation.</p>
+        <p>
+            The only time you must use subscript notation is when the key string contains
+            spaces or is one of JS's reserved words.
+        </p>
+        <div class="codeblock">
 var fred = {
     firstName:  'Fred',
     lastName:   'Flintstone'
@@ -233,91 +224,91 @@ console.log('fred["firstName"] is ' + fred["firstName"]);
 console.log('fred["lastName"] is ' + fred["lastName"]);
 console.log('fred.firstName is ' + fred.firstName);
 console.log('fred.lastName is ' + fred.lastName);
-            </div>
-        </div>
-        <div class="example">
-            <p>And this is how you create an empty object.</p>
-            <div class="codeblock">
-                var emptyObj = {};
-            </div>
         </div>
     </div>
-
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>23:26</p>
-            <h2>Loose typing</h2>
+    <div class="example">
+        <p>And this is how you create an empty object.</p>
+        <div class="codeblock">
+var emptyObj = {};
         </div>
+    </div>
+</div>
 
-        <div class="example">
-            <p>
-                There is no type associated with variables, parameters or return
-                values.
-            </p>
-            <p>
-                Note:  The operator overloading shown below is not something you
-                would put in production code.
-            </p>
-            <div class="codeblock">
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>23:26</p>
+        <h2>Loose typing</h2>
+    </div>
+
+    <div class="example">
+        <p>
+            There is no type associated with variables, parameters or return
+            values.
+        </p>
+        <p>
+            Note:  The operator overloading shown below is not something you
+            would put in production code.
+        </p>
+        <div class="codeblock">
 function plusOperator(a, b) {
     return a + b;
 }
 
 console.log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
 console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
-            </div>
         </div>
     </div>
+</div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>28:20</p>
-            <h2>Equality Operators</h2>
-        </div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>28:20</p>
+        <h2>Equality operators</h2>
+    </div>
 
-        <div class="example">
-            <p>
-                <code>==</code> coerces the arguments to the same type then
-                compares the values.
-            </p>
-            <div class="codeblock">
+    <div class="example">
+        <p>
+            <code>==</code> coerces the arguments to the same type then
+            compares the values.
+        </p>
+        <div class="codeblock">
 console.log("5 == 5 is " + (5 == 5));
 console.log('"5" == 5 is ' + ("5" == 5));
-            </div>
-        </div>
-        <div class="example">
-            <p>
-                <code>===</code> first compares the types of the arguments
-                (without coercion).  If they are the same, it then compares the
-                values.
-            </p>
-            <div class="codeblock">
-console.log("5 === 5 is " + (5 === 5));
-console.log('"5" === 5 is ' + ("5" === 5));
-            </div>
-        </div>
-        <div class="example">
-            <p>
-                Conclusion:
-                <span class="text-danger">99.99% of the time, you will just want
-                    to stick with === and !==.</span>
-            </p>
         </div>
     </div>
-
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>42:00</p>
-            <h2>"Maker" functions</h2>
+    <div class="example">
+        <p>
+            <code>===</code> first compares the types of the arguments
+            (without coercion).  If they are the same, it then compares the
+            values.
+        </p>
+        <div class="codeblock">
+console.log("5 === 5 is " + (5 === 5));
+console.log('"5" === 5 is ' + ("5" === 5));
         </div>
+    </div>
+    <div class="example">
+        <p>
+            Conclusion:
+            <span class="text-danger">99.99% of the time, you will just want
+                to stick with === and !==.</span>
+        </p>
+    </div>
+</div>
 
-        <div class="example">
-            <p>An example of a maker function:</p>
-            <div class="codeblock">
-                function makePerson(firstName, lastName) {
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>42:00</p>
+        <h2>"Maker" functions</h2>
+    </div>
+
+    <div class="example">
+        <p>An example of a maker function:</p>
+        <div class="codeblock">
+function makePerson(firstName, lastName) {
 
     // Create an empty object.
     var thePerson = {};
@@ -335,457 +326,388 @@ var barney = makePerson('Barney', 'Rubble');
 
 console.log(fred.firstName + ' ' + fred.lastName);
 console.log(barney.firstName + ' ' + barney.lastName);
-            </div>
         </div>
     </div>
+</div>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>45:20</p>
+        <h2>Object augmentation</h2>
+    </div>
+    <div class="example">
+        <p>When you need more properties on an object, there is no need
+            to subclass.  Just add the property to the hashtable!
+        </p>
+        <p>The usage of such objects becomes similar to the way you
+            use C++ COM objects today:  you query to see if the
+            interface exists.  If it does exist, you use it.  Otherwise, you
+            try to gracefully fall back.
+        </p>
+        <p>You can delete properties from the object too!</p>
+        <div class="codeblock">
+function makePerson(firstName, lastName) {
+    // Create an empty object.
+    var thePerson = {};
+
+    // Augment the object with its properties.
+    thePerson.firstName = firstName;
+    thePerson.lastName = lastName;
+
+    return thePerson;
+}
+
+// Now, create some objects.
+var barney = makePerson('Barney', 'Rubble');
+barney.pet = 'Hoppy the hopparoo';
+console.log("Barney's pet is " + barney.pet + ".");
+
+// You can also delete the property when it no longer applies.
+delete barney.pet;
+if (!barney.pet) {
+    console.log('Barney no longer has a pet.');
+}
         </div>
     </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>47:43</p>
+        <h2>Object linkage/Prototypal inheritance</h2>
+    </div>
+    <div class="example">
+        <p>When you ask an object for a property's value and it is not found
+            in that object, JS follows the "secret" prototype link to the
+            object's prototype object and looks there.  If not found there,
+            it will follow its prototype link, etc. etc. etc.  This is
+            called "following the prototype chain."
+        </p>
+        <p>When a derived object is assigned a property that already exists
+            in its prototype chain, the newly-created property effectively
+            hides the property, because it will be found first before
+            following the prototype chain
+        </p>
+        <p>The prototype chain does not come into play at all when assigning
+            to properties.  The object referenced receives the property.
+        </p>
+        <div class="codeblock">
+var base = {
+    myInteger: 1
+};
+
+var derived = Object.create(base);
+
+console.log('Asking derived for its myInteger property:');
+console.log('derived.myInteger is ' + derived.myInteger);
+
+derived.myInteger = 17;
+console.log('After giving derived a myInteger property:');
+console.log('derived.myInteger is ' + derived.myInteger);
+console.log('base.myInteger is ' + base.myInteger);
+
+delete derived.myInteger;
+console.log('After deleting derived.myInteger:');
+console.log('derived.myInteger is ' + derived.myInteger);
+console.log('base.myInteger is ' + base.myInteger);
+        </div>
+    </div>
+    <div class="example">
+        <p>This is the behavior for all properties (items in the hashtable),
+            including methods.
+        </p>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>1:07</p>
+        <h2>Functions</h2>
+    </div>
+    <div class="example">
+        <p><strong>Functions are objects!</strong>
+        </p>
+        <p>This means that:</p>
+        <p>1.  Functions are values.</p>
+        <p>Because functions are values, they can be used anywhere a normal
+            value can be used.  For example, they can be assigned to a
+            variable and can be passed as a parameter to another function.
+        </p>
+        <div class="codeblock">
+var speak = function () {
+    return 'yabba dabba doo!';
+};
+
+console.log('Calling speak(): ' + speak());
+
+var doSomething = function(action) {
+    return action();
+};
+
+console.log('Calling doSomething(speak): ' + doSomething(speak));
+        </div>
+    </div>
+    <div class="example">
+        <p>2.  Functions are objects that happen to have a function call
+            operator method.  This all gets setup for you when you use the
+            "function" keyword in JS.  But this function call operator is
+            just one property in the object/hashtable.  There can be other
+            properties as well.
+        </p>
+        <div class="codeblock">
+var stop = function () {
+    console.log('Stopping...');
+};
+stop.order = 0;                      // Adding a property to the function object
+
+var drop = function () {
+    console.log('Dropping...');
+};
+drop.order = 1;                      // Adding a property to the function object
+
+var roll = function () {
+    console.log('Rolling...');
+};
+roll.order = 2;                      // Adding a property to the function object
+
+var actionArray = [];
+actionArray[stop.order] = stop;
+actionArray[drop.order] = drop;
+actionArray[roll.order] = roll;
+
+for (var curIndex = 0; curIndex < actionArray.length; ++curIndex) {
+    actionArray[curIndex]();
+}
+        </div>
+    </div>
+    <div class="example">
+        <p>3.  If a function is to be used as a method (member function),
+            then it will probably need access to the object itself.  This is
+            done using the <code>this</code> variable.  <code>this</code>
+            gets setup by the JS runtime whenenver a function is invoked as
+            a property of an object.
+        </p>
+        <div class="codeblock">
+var speakFunc = function () {
+    console.log('Hello, my name is ' + this.name + '.');
+};
+
+var wilma = {
+    name: 'Wilma',
+    speak: speakFunc
+};
+wilma.speak();    // Call the function in the "speak" property with "this" set to wilma.
+
+var betty = {
+    name: 'Betty',
+    speak: wilma.speak            // Just another reference to speakFunc.
+};
+betty.speak();    // Call the function in the "speak" property with "this" set to betty.
+        </div>
+        <p>
+            Keep in mind that you can <strong>reassign and delete</strong>
+            the methods on an object at runtime, because they are stored just
+            like any other property... as a key-value pair in the hashtable.
+        </p>
+    </div>
+    <div class="example">
+        <p>4.  Functions can be declared within the scope of an outer
+            function.  The inner function has access to the variables and
+            parameters of its outer functions.
+        </p>
+        <dl>
+            <dt>Closure</dt>
+            <dd>When an inner function holds references to variables in an
+                outer scope, the inner function is said to "close over" the
+                variables.  The JS runtime will make sure that outer scope
+                continues to exist as long as there are references to the
+                inner function.
+            </dd>
+        </dl>
+        <div class="codeblock">
+var makeCar = function (name) {
+    var ignition = {
+        // Closes over the name parameter.
+        turnOn: function () {console.log(name + ': ignition on.');},
+
+        // Closes over the name parameter.
+        turnOff: function () {console.log(name + ': ignition off.');}
+    };
+
+    var newCar = {};
+
+    // Closes over the ignition local variable.
+    newCar.changeOil = function () {
+        ignition.turnOff();
+        console.log('Changing oil... done.');
+        ignition.turnOn();
+    };
+
+    return newCar;
+}
+
+var herbie = makeCar('Herbie');
+herbie.changeOil();
+        </div>
+        <p>Note:  In this example:</p>
+        <ul>
+            <li><code>changeOil()</code> looks like a public method. <br>
+                i.e. public properties are assigned to properties on the object itself.
+            </li>
+            <li><code>ignition</code> looks like a private data member. <br>
+                i.e. Private properties are closure variables.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>1:10:48</p>
+        <h2>Method and function forms of invocation</h2>
+    </div>
+    <div class="example">
+        <p>There are two contexts in which a function can be invoked:
+        </p>
+        <ol>
+            <li>in a <strong>function context</strong>. <br>
+                In this context, the programmer should assume that the
+                <code>this</code> variable is not available.  In actuality, the
+                JS runtime sets the <code>this</code> variable to the global
+                object, however, functions should avoid using it.
+            </li>
+            <li>In a <strong>method context</strong>. <br>
+                In this context, the JS runtime sets the <code>this</code>
+                variable to the object to the left of the <code>.</code>
+                operator.<br>
+                Note:  If a function that makes use of <code>this</code> is
+                invoked in a function context, <code>this</code> will be set to
+                the global object and it is unlikely that you will get the
+                intended result.
+            </li>
+        </ol>
+        <div class="codeblock">
+// A function that does not make use of "this."  It can be called in
+// a function context or a method context.
+var func = function () {
+    console.log('func says hello.');
+};
+
+// Called in a function context.
+func();
+
+// Called in a method context.
+var myObj = {
+    hello: func
+};
+myObj.hello();
+
+// A function that does make use of "this."  Because it uses "this,"
+// it should always be called in a method context.
+var method = function () {
+    console.log('Hello, my name is ' + this.name + '.');
+};
+myObj = {
+    name: 'Fred',
+    sayHello: method
+};
+
+// Called in a method context.
+myObj.sayHello();
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>time</p>
+        <h2>Heading</h2>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>time</p>
+        <h2>Heading</h2>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+    <div class="example">
+        <p>
+        </p>
+        <div class="codeblock">
+        </div>
+    </div>
+</div>
+
 
 </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to JavaScript</title>
 
-    <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-    </body>
-    </html>
-
-        <!-- ******************************************************************* -->
-    <div class="section">
-        <div class="section-heading">
-            <p>time</p>
-            <h2>Heading</h2>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-        <div class="example">
-            <p>
-            </p>
-            <div class="codeblock">
-            </div>
-        </div>
-    </div>
-
-</body>
+    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 </html>
