@@ -328,6 +328,13 @@ console.log(fred.firstName + ' ' + fred.lastName);
 console.log(barney.firstName + ' ' + barney.lastName);
         </div>
     </div>
+
+    <div class="example">
+        <p>Notice how you are no longer <em>declaring</em> the form of
+            your objects at compile time, but rather building them up
+            at runtime.
+        </p>
+    </div>
 </div>
 
 <!-- ******************************************************************* -->
@@ -571,7 +578,7 @@ herbie.changeOil();
         <h2>Method and function forms of invocation</h2>
     </div>
     <div class="example">
-        <p>There are three contexts in which a function can be invoked:
+        <p>There are four ways to invoke a function:
         </p>
         <ol>
             <li>in a <strong>function context</strong>. <br>
@@ -591,6 +598,10 @@ herbie.changeOil();
             </li>
             <li>In a <strong>constructor context</strong> (using the new operator). <br>
                 This will be discussed in a minute.
+            </li>
+            <li>Using <strong><code>apply())</code></strong>.<br>
+                Allows you to call a function and provide the <code>this</code> reference and the
+                parameters as an array.  This is an advanced topic not covered here.
             </li>
         </ol>
         <div class="codeblock">
@@ -623,6 +634,47 @@ myObj = {
 myObj.sayHello();
         </div>
     </div>
+
+    <div class="example">
+        <p>A note about nesting helper functions inside methods. <br>
+            Whenever you call a function in a function context, <code>this</code> is bound to
+            the global object.
+        </p>
+        <div class="codeblock">
+var myYugo = {name: 'Yugo'};
+myYugo.soundHorn = function () {
+    
+    var implFunc = function () {
+        console.log(this.name + ' goes beep! beep!');
+    };
+    return implFunc();  // Called as a func --> this is the global object!
+};
+
+myYugo.soundHorn();
+        </div>
+    </div>
+
+    <div class="example">
+        <p>To solve this, we must capture <code>this</code> using a closure. <br>
+            In the example below, we have removed implFunc's dependency on this by replacing
+            it with the variable <code>self</code> (called "that" in the video) which closes
+            over the value of <code>this</code> from the outer function.
+        </p>
+        <div class="codeblock">
+var myYugo = {name: 'Yugo'};
+myYugo.soundHorn = function () {
+    var self = this;
+    
+    var implFunc = function () {
+        console.log(self.name + ' goes beep! beep!');  // Captures self from outer func
+    };
+    return implFunc();
+};
+
+myYugo.soundHorn();
+        </div>
+    </div>
+
 </div>
 
 <!-- ******************************************************************* -->
@@ -636,7 +688,7 @@ myObj.sayHello();
             preceded by the <code>new</code> operator.
         </p>
         <p>
-            By convention, constructor functions start with a capital letter <br>
+            By convention, constructor functions start with a capital letter.
             This is your cue to know that it should be called using <code>new</code>.
         </p>
         <p>When a function is invoked in a constructor context, the following
@@ -763,59 +815,6 @@ barney.speak();
             mac.soundHorn();
             mac.stopEngine();
         </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
-        <div class="codeblock">
-        </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
-        <div class="codeblock">
-        </div>
-
-
-        <div class="codeblock">
-            var Person = function () {
-                // Note:  Because Person is intended to be used as a prototype,
-                // it should not contain any instance data.
-
-                // Because the prototype object is shared amongst all objects
-                // created with a specific constructor, you can think of it (in
-                // classical inheritance terms) as the place to put all static
-                // data members and all shared methods.
-            };
-
-            var Employee = function (employeeId) {
-                this.employeeId = employeeId;
-            };
-
-            // A single Person object will be created that will serve as the
-            // prototype for *all* Employee objects.
-            Employee.prototype = new Person();
-        </div>
-        <div class="codeblock">
-var Animal = (function () {
-    function Animal() {
-
-        // Data members
-        // todo:  Define data members.
-        // this.name = 'Kevin';
-    }
-
-    // todo: If needed, set the prototype object.
-    // Animal.prototype = myPrototype;
-
-    // Member functions
-    // todo:  Define methods.
-    // Animal.prototype.myMethod = function () { };
-
-    return Animal;
-})();
-        </div>
-
     </div>
 </div>
 
