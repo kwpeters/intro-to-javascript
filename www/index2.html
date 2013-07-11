@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to JavaScript</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
 <body>
 
 <script src="lib/jquery.js"></script>
@@ -392,13 +404,13 @@ if (!barney.pet) {
             it will follow its prototype link, etc. etc. etc.  This is
             called "following the prototype chain."
         </p>
+        <p>The prototype chain does not come into play at all when assigning
+            to properties.  The object referenced receives the property.
+        </p>
         <p>When a derived object is assigned a property that already exists
             in its prototype chain, the newly-created property effectively
             hides the property, because it will be found first before
             following the prototype chain
-        </p>
-        <p>The prototype chain does not come into play at all when assigning
-            to properties.  The object referenced receives the property.
         </p>
         <div class="codeblock">
 var base = {
@@ -411,6 +423,9 @@ console.log('Asking derived for its myInteger property:');
 console.log('derived.myInteger is ' + derived.myInteger);
 
 derived.myInteger = 17;
+
+// See image below describing state at this point.
+
 console.log('After giving derived a myInteger property:');
 console.log('derived.myInteger is ' + derived.myInteger);
 console.log('base.myInteger is ' + base.myInteger);
@@ -420,6 +435,13 @@ console.log('After deleting derived.myInteger:');
 console.log('derived.myInteger is ' + derived.myInteger);
 console.log('base.myInteger is ' + base.myInteger);
         </div>
+    </div>
+        <p>After line 10 above, the relationship
+            between <code>base</code> and <code>derived</code> looks like:
+        </p>
+        <p>
+            <img src="img/img001.jpg" />
+        </p>
     </div>
     <div class="example">
         <p>This is the behavior for all properties (items in the hashtable),
@@ -450,7 +472,7 @@ var speak = function () {
 
 console.log('Calling speak(): ' + speak());
 
-var doSomething = function(action) {
+var doSomething = function (action) {
     return action();
 };
 
@@ -489,6 +511,7 @@ for (var curIndex = 0; curIndex < actionArray.length; ++curIndex) {
     actionArray[curIndex]();
 }
         </div>
+        <p>Remember that we can also store functions in these properties!</p>
     </div>
     <div class="example">
         <p>3.  If a function is to be used as a method (member function),
@@ -518,6 +541,11 @@ betty.speak();    // Call the function in the "speak" property with "this" set t
             Keep in mind that you can <strong>reassign and delete</strong>
             the methods on an object at runtime, because they are stored just
             like any other property... as a key-value pair in the hashtable.
+        </p>
+        <p>
+            Notice how in the above example, we were able to reuse the
+            implementation of a member
+            function <strong>without</strong> using inheritance.
         </p>
     </div>
     <div class="example">
@@ -569,6 +597,12 @@ herbie.changeOil();
             </li>
         </ul>
     </div>
+
+    <div class="example">
+        <p>5.  Functions have a <code>__proto__</code>. <br />
+               <code>__proto__</code> for all functions is set to an object provided
+               by the JS runtime.  It contains <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype">several properties and methods</a>.
+        </p>
 </div>
 
 <!-- ******************************************************************* -->
@@ -643,10 +677,11 @@ myObj.sayHello();
         <div class="codeblock">
 var myYugo = {name: 'Yugo'};
 myYugo.soundHorn = function () {
-    
+
     var implFunc = function () {
         console.log(this.name + ' goes beep! beep!');
     };
+
     return implFunc();  // Called as a func --> this is the global object!
 };
 
@@ -663,8 +698,8 @@ myYugo.soundHorn();
         <div class="codeblock">
 var myYugo = {name: 'Yugo'};
 myYugo.soundHorn = function () {
-    var self = this;
-    
+    var self = this;  // Now we have a variable we can close over!
+
     var implFunc = function () {
         console.log(self.name + ' goes beep! beep!');  // Captures self from outer func
     };
@@ -689,7 +724,9 @@ myYugo.soundHorn();
         </p>
         <p>
             By convention, constructor functions start with a capital letter.
-            This is your cue to know that it should be called using <code>new</code>.
+            This is your cue to know that it should be called using <code>new</code>.<br />
+            Examples:  <code>String</code>, <code>Number</code>, <code>Array</code>.
+
         </p>
         <p>When a function is invoked in a constructor context, the following
             happens:
@@ -698,8 +735,12 @@ myYugo.soundHorn();
             <li>
                 An empty object is created.
             </li>
-            <li>The new object's <code>__proto__</code> property is set to the
-                constructor function's <code>prototype</code> property.
+            <li><strong>The new object's <code>__proto__</code> property is set to the
+                constructor function's <code>prototype</code> property.</strong>
+                <br/>
+                In other words...  For every object that is created using a particular
+                constructor function, the object's <code>__proto__</code> will be set
+                to the constructor's <code>prototype</code> property.
             </li>
             <li>The <code>this</code> variable is set to the newly created
                 object and the constructor function is invoked.
@@ -748,6 +789,8 @@ barney.speak();
         <p>We would rather have all instances share a single copy of
             <code>speak()</code>.
         </p>
+        <p>We need to squeeze out every ounce of performance so we can do wonderful things like <a href="http://apps.playcanvas.com/will/doom3/gangnamstyle">this</a>!
+        </p>
     </div>
     <div class="example">
         <p>The prototype is the place to put everything that is shared across
@@ -774,6 +817,9 @@ barney.speak();
             <code>speak</code> property whose value happens to be a function
             object.
         </p>
+        <p>
+            <img src="img/img002.jpg"/>
+        </p>
     </div>
     <div class="example">
         <p>By default each constructor function is given its own empty
@@ -788,32 +834,32 @@ barney.speak();
             that shared prototype.
         </p>
         <div class="codeblock">
-            var Vehicle = function () {
-                this.startEngine = function () {console.log('Engine started.');};
-                this.stopEngine  = function () {console.log('Engine stopped.');};
-            };
+var Vehicle = function () {
+    this.startEngine = function () {console.log('Engine started.');};
+    this.stopEngine  = function () {console.log('Engine stopped.');};
+};
 
-            var Car = function () {
-                // ...
-            };
-            Car.prototype = new Vehicle();
-            Car.prototype.soundHorn = function () {console.log('Beep!  Beep!');};
+var Car = function () {
+    // ...
+};
+Car.prototype = new Vehicle();
+Car.prototype.soundHorn = function () {console.log('Beep!  Beep!');};
 
-            var Truck = function () {
-                // ...
-            };
-            Truck.prototype = new Vehicle();
-            Truck.prototype.soundHorn = function () {console.log('Honk!  Honk!')};
+var Truck = function () {
+    // ...
+};
+Truck.prototype = new Vehicle();
+Truck.prototype.soundHorn = function () {console.log('Honk!  Honk!')};
 
-            var yugo = new Car();
-            yugo.startEngine();
-            yugo.soundHorn();
-            yugo.stopEngine();
+var yugo = new Car();
+yugo.startEngine();
+yugo.soundHorn();
+yugo.stopEngine();
 
-            var mac = new Truck();
-            mac.startEngine();
-            mac.soundHorn();
-            mac.stopEngine();
+var mac = new Truck();
+mac.startEngine();
+mac.soundHorn();
+mac.stopEngine();
         </div>
     </div>
 </div>
@@ -821,51 +867,62 @@ barney.speak();
 <!-- ******************************************************************* -->
 <div class="section">
     <div class="section-heading">
-        <p>time</p>
-        <h2>Heading</h2>
+        <h2>Augmenting Built-in Types</h2>
     </div>
     <div class="example">
-        <p>
+        <p>You have access to the <strong>constructors</strong> of all JS built-in types:
+            <ul>
+                <li><code>Object</code></li>
+                <li><code>Array</code></li>
+                <li><code>Function</code></li>
+                <li><code>Number</code></li>
+                <li><code>String</code></li>
+                <li><code>Boolean</code></li>
+            </ul>
+
+            This means that we can augment these built-in types by adding new properties to:
+            <ul>
+                <li><code>Object.prototype</code></li>
+                <li><code>Array.prototype</code></li>
+                <li><code>Function.prototype</code></li>
+                <li><code>Number.prototype</code></li>
+                <li><code>String.prototype</code></li>
+                <li><code>Boolean.prototype</code></li>
+            </ul>
         </p>
         <div class="codeblock">
+String.prototype.trim = function () {
+    return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1");
+}
+
+var text = '           Yabba Dabba Dooo            ';
+console.log(text.trim());
         </div>
-    </div>
-    <div class="example">
-        <p>
+
+        <p>Augmenting in this manner is similar to writing extension methods in C#.
         </p>
-        <div class="codeblock">
-        </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
-        <div class="codeblock">
-        </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
-        <div class="codeblock">
-        </div>
-    </div>
-    <div class="example">
-        <p>
-        </p>
-        <div class="codeblock">
-        </div>
+
     </div>
 </div>
 
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <h2>Key Points</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>JavaScript is a "low resistance" language.<br />
+                It's flexible and lets you do pretty much anything you want to. <br />
+                Don't shoot your foot!
+            </li>
+            <li>JavaScript is a prototypal language. <br />
+                Learn to think this way and "work with the grain."
+            </li>
+        </ul>
+    </div>
+</div>
 
 </body>
-<head>
-    <meta charset="UTF-8">
-    <title>Intro to JavaScript</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
 </html>

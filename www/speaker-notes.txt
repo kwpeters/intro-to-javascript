@@ -1,0 +1,83 @@
+"Maker" functions
+--------------------------------------------------------------------------------
+
+"DIY constructor"/"poor man's constructor"
+Convenient for making "structs"
+Does not leverage inheritance/reuse
+
+
+Object augmentation
+--------------------------------------------------------------------------------
+Add functionality to individual objects
+Leads to QI-style programming
+
+
+Object linkage/Prototypal inheritance
+--------------------------------------------------------------------------------
+Every object has a secret "__proto__"
+Property retrieval "follows the prototype chain"
+Property setting always uses the referenced object
+When derived obj receives a new prop, it may hide the prop higher in the prototype chain
+Remember, there is no difference b/t data properties and function properties.
+
+
+Functions
+--------------------------------------------------------------------------------
+BTW,
+    - too few arguments --> unspecified args are undefined
+    - too many arguments --> excess elements not accessible
+    - NOT AN ERROR - UNIT TEST
+
+Functions are objects - C++ functors/lambdas
+Applying what we already know about functions causes things worth noting:
+
+1.  Funcs can be used as values - parameters, return values
+
+2.  Funcs have a func call operator set by default.
+    This is just 1 property in their hashtable
+
+3.  Can use "this" if they expect to be used as methods/member functions
+
+    Keep in mind that methods are just properties that can be reassigned/deleted
+
+    In this example we get reuse w/o inheritance!
+
+4.  Functions can be nested
+    An inner functions can access the variables in its outer scopes
+    The inner "closes over" the variables
+    "Closure"
+    JS keeps the outer scope around as long as it is referenced
+    (garbage collection!)
+
+    Example
+
+    Variables that are "closed over" behave like private data members
+
+5.  Function objects have a __proto__
+    Function.prototype
+
+Forms of function invocation
+--------------------------------------------------------------------------------
+
+1.  Function context - no biggie
+    Should not use "this"
+
+2.  Method context - no biggie
+    "this" will be set to the thinng on the left
+
+3.  Constructor context
+    Called using the new keyword
+    We'll get to it
+
+4.  Using apply()
+    Provided by the built-in __proto__ for all functions.
+    Advanced, not covered here
+
+Examples
+
+
+Constructor invocation
+--------------------------------------------------------------------------------
+Whenever a function call is preceded by "new"
+Convention: Constructors begin with a capital letter (built-in precedence for this)
+
