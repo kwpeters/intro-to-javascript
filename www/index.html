@@ -413,6 +413,7 @@ console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
         </ul>
     </div>
 </div>
+<!-- ******************************************************************* -->
 
 <div class="section">
     <div class="section-heading">
@@ -424,6 +425,65 @@ console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
             <li><code>/* foo */</code></li>
         </ul>
     </div>
+</div>
+
+<!-- ******************************************************************* -->
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Semicolons</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Semicolons are (unfortunately) optional.</li>
+            <li>If you omit them, they will be automatically inserted.</li>
+            <li>Prefer to leave operators at the end of your lines so a semicolon
+                will not get inserted for you.
+            </li>
+            <li>Using a linting tool such as JSLint or JSHint (preferred) will
+                catch these cases.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Curly Brace Placement</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>
+                Use
+                <a href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style">K&R style</a>,
+                not <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a>.
+            </li>
+            <li>Allman style will get you into trouble with automatic semicolon insertion.</li>
+        </ul>
+    </div>
+    <p>Dont' do this:</p>
+    <div class="codeblock">
+function foo() {
+    return
+    {
+        first: 'Fred',
+        last:  'Flintstone'
+    };
+}
+console.log(JSON.stringify(foo()));
+    </div>
+    <p></p>
+    <p>Do this instead:</p>
+    <div class="codeblock">
+function foo() {
+    return {
+        first: 'Fred',
+        last:  'Flintstone'
+    };
+}
+console.log(JSON.stringify(foo()));
+    </div>
+
 </div>
 
 <!-- ******************************************************************* -->
