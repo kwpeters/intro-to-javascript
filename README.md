@@ -13,9 +13,13 @@ Setup
 npm install
 ```
 
-Running the server
+Using the Tutorial
 ------------------
+
+Run the server:
 
 ```
 node server.js
 ```
+
+Open your web browser to [http://localhost:3000/](http://localhost:3000/).
