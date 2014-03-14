@@ -1,36 +1,1234 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <title>Intro to JavaScript</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="lib/codeblock/codeblock.css">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-
-    <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script src="helpers.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
+
+<script src="lib/jquery.js"></script>
+<script src="lib/ace.js"></script>
+<script src="lib/codeblock/codeblock.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="introtojs.js"></script>
+<script src="helpers.js"></script>
+
 
 <div class="well">
     <h1>Introduction to JavaScript</h1>
 
     <p class="lead">
         Based on Douglas Crockford's presentation
-        <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">
-            The JavaScript Programming Language
+        <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language
         </a>.
     </p>
 </div>
 
-<div class="container">
-    <div id="content">
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <h2>JavaScript is the world's most misunderstood programming language.</h2>
+    </div>
+</div>
+<ul>
+    <li>It has nothing to do with Java.</li>
+    <li><i>"Script"</i> makes it sound incomplete.</li>
+    <li>It has some design errors.  Some have been fixed.</li>
+    <li>It has been type cast as <i>"the language of the browser."</i>
+        <li>People assume that the difficulty with web programming is caused by JS.</li>
+    </li>
+    <li>ECMA did not do a good job in writing the ECMAScript standard.</li>
+</ul>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>History</h2>
+    </div>
+    <ul>
+        <li>1992 - James Gosling at Sun created Oak</li>
+        <li>1995 - Netscape determined that Java was too heavy so Brendan Eich created LiveScript</li>
+        <li>The web was seen as the way to break away from Microsoft.</li>
+        <li>Sun and Netscape created an alliance.</li>
+        <li>1996 - Microsoft needed to compete in this area, so the reverse engineered JavaScript to get JScipt.</li>
+        <li>Standardized ECMAScript so that Microsoft could not assume control of direction.</li>
+        <li>1998 - ECMAScript</li>
+        <li>We are now at ECMAScript 5 and waiting for ECMAScript 6.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Key Tenets</h2>
+    </div>
+    <ul>
+        <li>Load and go delivery (delivered as textual source code)</li>
+        <li>Dynamically typed (learn to love it)</li>
+        <li>Objects as general containers (objects are hashtables/maps)</li>
+        <li>Prototypal inheritance (there are no classes)</li>
+        <li>Lambda (functions as first class objects)</li>
+        <li>Linkage through global variables</li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Values</h2>
+    </div>
+    <ul>
+        <li>Number</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>Objects</li>
+        <li>null</li>
+        <li>undefined</li>
+    </ul>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Number</h2>
+    </div>
+    <ul>
+        <li>There is <em>only one</em> number type (64-bit float a.k.a. Double)</li>
+    </ul>
+
+    <div class="codeblock">
+var sum = 0.1 + 0.2
+console.log('0.1 + 0.2 = ' + sum);
+    </div>
+
+</div>
+
+<!-- ******************************************************************* -->
+
+<div class="section">
+    <div class="section-heading">
+        <p>15:25</p>
+        <h2>NaN</h2>
+    </div>
+
+    <div class="example">
+        <p>NaN is the result of invalid operations.</p>
+        <div class="codeblock">
+console.log('0/0 is ' + 0/0);
+        </div>
+    </div>
+    <div class="example">
+        <p>NaN is toxic.</p>
+        <div class="codeblock">
+console.log('(NaN + 5) * 2 + 14 is ' + ((NaN + 5) * 2 + 14));
+        </div>
+    </div>
+    <div class="example">
+        <p>NaN is not equal to anything, including NaN.</p>
+        <div class="codeblock">
+console.log('Boolean(NaN === 5) is ' + Boolean(NaN === 5));
+console.log('Boolean(NaN === NaN) is ' + Boolean(NaN === NaN));
+console.log('Boolean(NaN == NaN) is ' + Boolean(NaN == NaN));
+console.log('Boolean(NaN > NaN) is ' + Boolean(NaN > NaN));
+console.log('Boolean(NaN < NaN) is ' + Boolean(NaN < NaN));
+        </div>
+    </div>
+    <div class="example">
+        <p>The type of NaN is number.</p>
+        <div class="codeblock">
+console.log('typeof NaN is ' + typeof NaN);
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>16:39</p>
+        <h2>Number()</h2>
+    </div>
+
+    <div class="example">
+        <p>Number() can be used to convert a string into a number.</p>
+        <div class="codeblock">
+console.log('Number("100") is ' + Number("100"));
+        </div>
+    </div>
+    <div class="example">
+        <p>Number() returns NaN if it has a problem.</p>
+        <div class="codeblock">
+console.log('Number("hello") is ' + Number("hello"));
+        </div>
+    </div>
+    <div class="example">
+        <p>ParseInt() is similar, but also allows you to (optionally) specify a radix.</p>
+        <p>
+            Note:  When the string starts with "0x" and no radix is specified, a radix of 16
+            is assumed.  When the string starts with a "0" and no radix is specified, a
+            radix of 10 is used.
+        </p>
+        <div class="codeblock">
+console.log('parseInt("8") is ' + parseInt("8"));
+console.log('parseInt("08") is ' + parseInt("08"));
+console.log('parseInt("0x10") is ' + parseInt("0x10"));
+console.log('parseInt("10", 16) is ' + parseInt("10", 16));
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>17:12</p>
+        <h2>Math object</h2>
+    </div>
+
+    <div class="example">
+        <p>The Math object contains the usual suspects.</p>
+        <ul>
+            <li>abs()</li>
+            <li>floor()</li>
+            <li>log()</li>
+            <li>max()</li>
+            <li>pow()</li>
+            <li>random()</li>
+            <li>round()</li>
+            <li>sin()</li>
+            <li>sqrt()</li>
+        </ul>
+        <div class="codeblock">
+console.log('Math.abs(+10) is ' + Math.abs(+10));
+console.log('Math.abs(-10) is ' + Math.abs(-10));
+console.log('Math.floor(1) is ' + Math.floor(1));
+console.log('Math.floor(1.8) is ' + Math.floor(1.8));
+console.log('Math.max(1.1, 2.2, 3.3, 4.4, 5.5) is ' + Math.max(1.1, 2.2, 3.3, 4.4, 5.5));
+console.log('Math.random() is ' + Math.random());
+console.log('Math.round(1.4) is ' + Math.round(1.4));
+console.log('Math.round(1.5) is ' + Math.round(1.5));
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Strings</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>0 or more 16-bit characters (UCS-2, not UTF-16)</li>
+            <li>No separate character type</li>
+            <li>Immutable</li>
+            <li>Similar strings are equal (==)</li>
+            <li>Literals use single or double quotes</li>
+            <li>Lots of useful methods
+                <ul>
+                    <li>charAt()</li>
+                    <li>concat()</li>
+                    <li>indexOf()</li>
+                    <li>lastIndexOf()</li>
+                    <li>match()</li>
+                    <li>replace()</li>
+                    <li>search()</li>
+                    <li>slice()</li>
+                    <li>split()</li>
+                    <li>substring()</li>
+                    <li>toLowerCase()</li>
+                    <li>toUpperCase()</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Boolean</h2>
+    </div>
+    <div class="example">
+        <h3>Values</h3>
+        <ul>
+            <li>true</li>
+            <li>false</li>
+        </ul>
+    </div>
+</div>
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>20:33</p>
+        <h2>undefined and null</h2>
+    </div>
+
+    <div class="example">
+        <p>undefined means "what you are asking for does not exist."</p>
+        <p>undefined is the default value of uninitialized variables.</p>
+        <div class="codeblock">
+var myUndefined;
+console.log('myUndefined is ' + myUndefined);
+myUndefined = 5;
+console.log('myUndefined is ' + myUndefined);
+myUndefined = undefined;   // Debatable whether this should be allowed.
+console.log('myUndefined is ' + myUndefined);
+        </div>
+    </div>
+    <div class="example">
+        <p>null means "what you are asking for exists, but has no value."</p>
+        <div class="codeblock">
+var value = null;
+console.log('value is ' + value);
+value = 5;
+console.log('value is ' + value);
+value = null;
+console.log('value is ' + value);
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>20:11</p>
+        <h2>Falsy and truthy values</h2>
+    </div>
+
+    <div class="example">
+        <p>The following are flasy values.</p>
+        <div class="codeblock">
+console.log('Boolean(false) is ' + Boolean(false));
+console.log('Boolean(null) is ' + Boolean(null));
+console.log('Boolean(undefined) is ' + Boolean(undefined));
+console.log('Boolean("") is ' + Boolean(""));
+console.log('Boolean(0) is ' + Boolean(0));
+console.log('Boolean(NaN) is ' + Boolean(NaN));
+        </div>
+    </div>
+    <div class="example">
+        <p>The following are truthy values.</p>
+        <div class="codeblock">
+console.log('Boolean(true) is ' + Boolean(true));
+console.log('Boolean(1) is ' + Boolean(1));
+console.log('Boolean("false") is ' + Boolean("false"));  // Only empty strings are false
+console.log('Boolean("0") is ' + Boolean("0"));          // Only empty strings are false
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>22:55</p>
+        <h2>Objects are hashtables/Maps/Dictionaries!!!</h2>
+    </div>
+
+    <div class="example">
+        <p>Objects are nothing more than containers of name-value pairs!</p>
+        <ul>
+            <li>The keys are strings (property names)</li>
+            <li>The values are any value (including functions)</li>
+        </ul>
+
+        <p>Object literal syntax:</p>
+        <ul>
+            <li>wrapped in <code>{ }</code></li>
+            <li>keys can be identifiers or strings (can contain spaces)</li>
+            <li><code>:</code> separates names from their value</li>
+            <li><code>,</code> separates the name-value pairs</li>
+        </ul>
+        <div class="codeblock">
+var fred = {
+    firstName:  'Fred',
+    lastName:   'Flintstone'
+};
+console.log(JSON.stringify(fred))
+        </div>
+    </div>
+    <div class="example">
+        <p>Values can be retrieved using subscript syntax or object "dot" notation.</p>
+        <p>
+            The only time you must use subscript notation is when the key string contains
+            spaces or is one of JavaScripts's reserved words.
+        </p>
+        <div class="codeblock">
+var fred = {
+    firstName:  'Fred',
+    lastName:   'Flintstone'
+};
+console.log('fred["firstName"] is ' + fred["firstName"]);
+console.log('fred["lastName"] is ' + fred["lastName"]);
+console.log('fred.firstName is ' + fred.firstName);
+console.log('fred.lastName is ' + fred.lastName);
+        </div>
+    </div>
+    <div class="example">
+        <p>And this is how you create an empty object.</p>
+        <div class="codeblock">
+var emptyObj = {};
+console.log(JSON.stringify(emptyObj));
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>23:26</p>
+        <h2>Loose typing</h2>
+    </div>
+
+    <div class="example">
+        <p>
+            There is no type associated with variables, parameters or return
+            values.
+        </p>
+        <p>
+            Note:  The operator overloading shown below is not something you
+            would put in production code.
+        </p>
+        <div class="codeblock">
+function plusOperator(a, b) {
+    return a + b;
+}
+
+console.log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
+console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Identifiers</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Same as C/C++</li>
+            <li>Convention: all variables, parameters, members and function names start with lower case</li>
+            <li>Constructors start with upper case</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Comments</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li><code>//</code></li>
+            <li><code>/* foo */</code></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>28:20</p>
+        <h2>Equality operators</h2>
+    </div>
+
+    <div class="example">
+        <p>
+            <code>==</code> coerces the arguments to the same type then
+            compares the values.
+        </p>
+        <div class="codeblock">
+console.log("5 == 5 is " + (5 == 5));
+console.log("5 == 6 is " + (5 == 6));
+console.log("5 != 5 is " + (5 != 5));
+console.log("5 != 6 is " + (5 != 6));
+console.log('"5" == 5 is ' + ("5" == 5));
+        </div>
+    </div>
+    <div class="example">
+        <p>
+            <code>===</code> first compares the types of the arguments
+            (without coercion).  If they are the same, it then compares the
+            values.
+        </p>
+        <div class="codeblock">
+console.log("5 === 5 is " + (5 === 5));
+console.log('"5" === 5 is ' + ("5" === 5));
+        </div>
+    </div>
+    <div class="example">
+        <h3>
+            Conclusion:
+            <span class="text-danger">99.99% of the time, you will just want
+                to stick with === and !==.</span>
+        </h3>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="section-heading">
+        <h2>&&</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Also known as the "guard operator"</li>
+            <li>If the first operand is truthy, result is the second operand</li>
+            <li>It can be used to avoid null references</li>
+        </ul>
+
+        <div class="codeblock">
+var a = {name: 'Fred'};
+if (a) {
+    console.log(a.name);
+} else {
+    console.log(a);
+}
+        </div>
+        <div class="codeblock">
+var a = {name: 'Fred'};
+console.log(a && a.name);
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>||</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Also known as the "default operator"</li>
+            <li>If the first operand is falsy, result is the second operand</li>
+            <li>It can be used to fill in default values</li>
+        </ul>
+
+        <div class="codeblock">
+var a = {name: 'Fred'};
+var b = a.name || 'Barney';
+console.log(b);
+        </div>
+
+        <p>Using && and || together:</p>
+        <div class="codeblock">
+var a = {name: 'Fred'};
+var b = (a && a.name) || 'Barney';
+console.log(b);
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Statements</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>expression</li>
+            <li>if</li>
+            <li>switch</li>
+            <li>while</li>
+            <li>do</li>
+            <li>for
+
+                <div class="codeblock">
+var myArray = [1, 2, 3];
+for (var i = 0; i < myArray.length; ++i) {
+    console.log(myArray[i]);
+}
+                </div>
+
+                <p></p>
+                <p>A special form of <code>for</code> that allows iteration of keys in an object:</p>
+                <div class="codeblock">
+var person={first: 'Fred', last: 'Flintstone'};
+for (var keyName in person) {
+    // Don't iterate through inherited properties.
+    if (person.hasOwnProperty(keyName)) {
+        console.log('key: ' + keyName + ', value: ' + person[keyName]);
+    }
+}
+                </div>
+            </li>
+            <li>break
+                <ul>
+                    <li>labeled breaks</li>
+                </ul>
+            </li>
+            <li>continue</li>
+            <li>return</li>
+            <li>throw</li>
+            <li>try/catch</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <div class="section-heading">
+        <h2>Scope</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Blocks do not have scope.</li>
+            <li>Only functions have scope.</li>
+            <li>All variable declarations will be "hoisted" to the beginning of its function.</li>
+            <li>It is best to do this yourself.</li>
+            <li>If you don't declare a variable, it will become global.</li>
+        </ul>
+
+        <div class="codeblock">
+function foo() {
+    var i = 'Fred';
+    var myArray = [1, 2, 3];
+
+    for (var i = 0; i < myArray.length; ++i) {
+        curValue = myArray[i];   // Oops! Forgot to declare. Will be global.
+        console.log(myArray[i]);
+    }
+
+    console.log(i);
+}
+foo();
+        </div>
+
+        <h3>All functions should start with <code>"use strict";</code> to prevent
+            against these types of errors.
+        </h3>
+
+        <div class="codeblock">
+function foo() {
+    "use strict";
+
+    var i = 'Fred';
+    var myArray = [1, 2, 3];
+
+    for (var i = 0; i < myArray.length; ++i) {
+        curValue = myArray[i];   // Oops! Forgot to declare. Will be global.
+        console.log(myArray[i]);
+    }
+
+    console.log(i);
+}
+foo();
+        </div>
+    </div>
+</div>
+
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>42:00</p>
+        <h2>"Maker" functions</h2>
+    </div>
+
+    <div class="example">
+        <p>An example of a maker function:</p>
+        <div class="codeblock">
+function makePerson(firstName, lastName) {
+
+    // Create an empty object.
+    var thePerson = {};
+
+    // Augment the object with its properties.
+    thePerson.firstName = firstName;
+    thePerson.lastName = lastName;
+
+    return thePerson;
+}
+
+// Now, create some objects.
+var fred = makePerson('Fred', 'Flintstone');
+var barney = makePerson('Barney', 'Rubble');
+
+console.log(fred.firstName + ' ' + fred.lastName);
+console.log(barney.firstName + ' ' + barney.lastName);
+        </div>
+    </div>
+
+    <div class="example">
+        <p>Notice how you are no longer <em>declaring</em> the form of
+            your objects at compile time, but rather building them up
+            at runtime.
+        </p>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>45:20</p>
+        <h2>Object augmentation</h2>
+    </div>
+    <div class="example">
+        <p>When you need more properties on an object, there is no need
+            to subclass.  Just add the property to the hashtable!
+        </p>
+        <p>The usage of such objects becomes similar to the way you
+            use C++ COM objects today:  you query to see if the
+            interface exists.  If it does exist, you use it.  Otherwise, you
+            try to gracefully fall back.
+        </p>
+        <p>You can delete properties from the object too!</p>
+        <div class="codeblock">
+function makePerson(firstName, lastName) {
+    // Create an empty object.
+    var thePerson = {};
+
+    // Augment the object with its properties.
+    thePerson.firstName = firstName;
+    thePerson.lastName = lastName;
+
+    return thePerson;
+}
+
+// Now, create some objects.
+var barney = makePerson('Barney', 'Rubble');
+barney.pet = 'Hoppy the hopparoo';
+console.log("Barney's pet is " + barney.pet + ".");
+
+// You can also delete the property when it no longer applies.
+delete barney.pet;
+if (!barney.pet) {
+    console.log('Barney no longer has a pet.');
+}
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>47:43</p>
+        <h2>Object linkage/Prototypal inheritance</h2>
+    </div>
+    <div class="example">
+        <p>When you ask an object for a property's value and it is not found
+            in that object, JS follows the "secret" prototype link to the
+            object's prototype object and looks there.  If not found there,
+            it will follow its prototype link, etc. etc. etc.  This is
+            called "following the prototype chain."
+        </p>
+        <p>The prototype chain does not come into play at all when assigning
+            to properties.  The object referenced receives the property.
+        </p>
+        <p>When a derived object is assigned a property that already exists
+            in its prototype chain, the newly-created property effectively
+            hides the property, because it will be found first before
+            following the prototype chain
+        </p>
+        <div class="codeblock">
+var base = {
+    myInteger: 1
+};
+
+var derived = Object.create(base);
+
+console.log('Asking derived for its myInteger property:');
+console.log('derived.myInteger is ' + derived.myInteger);
+
+derived.myInteger = 17;
+
+// See image below describing state at this point.
+
+console.log('After giving derived a myInteger property:');
+console.log('derived.myInteger is ' + derived.myInteger);
+console.log('base.myInteger is ' + base.myInteger);
+
+delete derived.myInteger;
+console.log('After deleting derived.myInteger:');
+console.log('derived.myInteger is ' + derived.myInteger);
+console.log('base.myInteger is ' + base.myInteger);
+        </div>
+    </div>
+        <p>After line 10 above, the relationship
+            between <code>base</code> and <code>derived</code> looks like:
+        </p>
+        <p>
+            <img src="img/img001.jpg" />
+        </p>
+    </div>
+    <div class="example">
+        <p>This is the behavior for all properties (items in the hashtable),
+            including methods.
+        </p>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>1:07</p>
+        <h2>Functions</h2>
+    </div>
+    <div class="example">
+        <p><strong>Functions are objects!</strong>
+        </p>
+        <p>This means that:</p>
+        <p>1.  Functions are values.</p>
+        <p>Because functions are values, they can be used anywhere a normal
+            value can be used.  For example, they can be assigned to a
+            variable and can be passed as a parameter to another function.
+        </p>
+        <div class="codeblock">
+var speak = function () {
+    return 'yabba dabba doo!';
+};
+
+console.log('Calling speak(): ' + speak());
+
+var doSomething = function (action) {
+    return action();
+};
+
+console.log('Calling doSomething(speak): ' + doSomething(speak));
+        </div>
+    </div>
+    <div class="example">
+        <p>2.  Functions are objects that happen to have a function call
+            operator method.  This all gets setup for you when you use the
+            "function" keyword in JS.  But this function call operator is
+            just one property in the object/hashtable.  There can be other
+            properties as well.
+        </p>
+        <div class="codeblock">
+var stop = function () {
+    console.log('Stopping...');
+};
+stop.order = 0;                      // Adding a property to the function object
+
+var drop = function () {
+    console.log('Dropping...');
+};
+drop.order = 1;                      // Adding a property to the function object
+
+var roll = function () {
+    console.log('Rolling...');
+};
+roll.order = 2;                      // Adding a property to the function object
+
+var actionArray = [];
+actionArray[stop.order] = stop;
+actionArray[drop.order] = drop;
+actionArray[roll.order] = roll;
+
+for (var curIndex = 0; curIndex < actionArray.length; ++curIndex) {
+    actionArray[curIndex]();
+}
+        </div>
+        <p>Remember that we can also store functions in these properties!</p>
+    </div>
+    <div class="example">
+        <p>3.  If a function is to be used as a method (member function),
+            then it will probably need access to the object itself.  This is
+            done using the <code>this</code> variable.  <code>this</code>
+            gets setup by the JS runtime whenenver a function is invoked as
+            a property of an object.
+        </p>
+        <div class="codeblock">
+var speakFunc = function () {
+    console.log('Hello, my name is ' + this.name + '.');
+};
+
+var wilma = {
+    name: 'Wilma',
+    speak: speakFunc
+};
+wilma.speak();    // Call the function in the "speak" property with "this" set to wilma.
+
+var betty = {
+    name: 'Betty',
+    speak: wilma.speak            // Just another reference to speakFunc.
+};
+betty.speak();    // Call the function in the "speak" property with "this" set to betty.
+        </div>
+        <p>
+            Keep in mind that you can <strong>reassign and delete</strong>
+            the methods on an object at runtime, because they are stored just
+            like any other property... as a key-value pair in the hashtable.
+        </p>
+        <p>
+            Notice how in the above example, we were able to reuse the
+            implementation of a member
+            function <strong>without</strong> using inheritance.
+        </p>
+    </div>
+    <div class="example">
+        <p>4.  Functions can be declared within the scope of an outer
+            function.  The inner function has access to the variables and
+            parameters of its outer functions.
+        </p>
+        <dl>
+            <dt>Closure</dt>
+            <dd>When an inner function holds references to variables in an
+                outer scope, the inner function is said to "close over" the
+                variables.  The JS runtime will make sure that outer scope
+                continues to exist as long as there are references to the
+                inner function.
+            </dd>
+        </dl>
+        <div class="codeblock">
+var makeCar = function (name) {
+    var ignition = {
+        // Closes over the name parameter.
+        turnOn: function () {console.log(name + ': ignition on.');},
+
+        // Closes over the name parameter.
+        turnOff: function () {console.log(name + ': ignition off.');}
+    };
+
+    var newCar = {};
+
+    // Closes over the ignition local variable.
+    newCar.changeOil = function () {
+        ignition.turnOff();
+        console.log('Changing oil... done.');
+        ignition.turnOn();
+    };
+
+    return newCar;
+}
+
+var herbie = makeCar('Herbie');
+herbie.changeOil();
+        </div>
+        <p>Note:  In this example:</p>
+        <ul>
+            <li><code>changeOil()</code> looks like a public method. <br>
+                i.e. public properties are assigned to properties on the object itself.
+            </li>
+            <li><code>ignition</code> looks like a private data member. <br>
+                i.e. Private properties are closure variables.
+            </li>
+        </ul>
+    </div>
+
+    <div class="example">
+        <p>5.  Functions have a <code>__proto__</code>. <br />
+               <code>__proto__</code> for all functions is set to an object provided
+               by the JS runtime.  It contains <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype">several properties and methods</a>.
+        </p>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>1:10:48</p>
+        <h2>Method and function forms of invocation</h2>
+    </div>
+    <div class="example">
+        <p>There are four ways to invoke a function:
+        </p>
+        <ol>
+            <li>in a <strong>function context</strong>. <br>
+                In this context, the programmer should assume that the
+                <code>this</code> variable is not available.  In actuality, the
+                JS runtime sets the <code>this</code> variable to the global
+                object, however, functions should avoid using it.
+            </li>
+            <li>In a <strong>method context</strong>. <br>
+                In this context, the JS runtime sets the <code>this</code>
+                variable to the object to the left of the <code>.</code>
+                operator.<br>
+                Note:  If a function that makes use of <code>this</code> is
+                invoked in a function context, <code>this</code> will be set to
+                the global object and it is unlikely that you will get the
+                intended result.
+            </li>
+            <li>In a <strong>constructor context</strong> (using the new operator). <br>
+                This will be discussed in a minute.
+            </li>
+            <li>Using <strong><code>apply())</code></strong>.<br>
+                Allows you to call a function and provide the <code>this</code> reference and the
+                parameters as an array.  This is an advanced topic not covered here.
+            </li>
+        </ol>
+        <div class="codeblock">
+// A function that does not make use of "this."  It can be called in
+// a function context or a method context.
+var func = function () {
+    console.log('func says hello.');
+};
+
+// Called in a function context.
+func();
+
+// Called in a method context.
+var myObj = {
+    hello: func
+};
+myObj.hello();
+
+// A function that does make use of "this."  Because it uses "this,"
+// it should always be called in a method context.
+var method = function () {
+    console.log('Hello, my name is ' + this.name + '.');
+};
+myObj = {
+    name: 'Fred',
+    sayHello: method
+};
+
+// Called in a method context.
+myObj.sayHello();
+        </div>
+    </div>
+
+    <div class="example">
+        <p>A note about nesting helper functions inside methods. <br>
+            Whenever you call a function in a function context, <code>this</code> is bound to
+            the global object.
+        </p>
+        <div class="codeblock">
+var myYugo = {name: 'Yugo'};
+myYugo.soundHorn = function () {
+
+    var implFunc = function () {
+        console.log(this.name + ' goes beep! beep!');
+    };
+
+    return implFunc();  // Called as a func --> this is the global object!
+};
+
+myYugo.soundHorn();
+        </div>
+    </div>
+
+    <div class="example">
+        <p>To solve this, we must capture <code>this</code> using a closure. <br>
+            In the example below, we have removed implFunc's dependency on this by replacing
+            it with the variable <code>self</code> (called "that" in the video) which closes
+            over the value of <code>this</code> from the outer function.
+        </p>
+        <div class="codeblock">
+var myYugo = {name: 'Yugo'};
+myYugo.soundHorn = function () {
+    var self = this;  // Now we have a variable we can close over!
+
+    var implFunc = function () {
+        console.log(self.name + ' goes beep! beep!');  // Captures self from outer func
+    };
+    return implFunc();
+};
+
+myYugo.soundHorn();
+        </div>
+    </div>
+
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <p>1:10:48</p>
+        <h2>Constructor invocation</h2>
+    </div>
+    <div class="example">
+        <p>A function is invoked in a constructor context whenever it is
+            preceded by the <code>new</code> operator.
+        </p>
+        <p>
+            By convention, constructor functions start with a capital letter.
+            This is your cue to know that it should be called using <code>new</code>.<br />
+            Examples:  <code>String</code>, <code>Number</code>, <code>Array</code>.
+
+        </p>
+        <p>When a function is invoked in a constructor context, the following
+            happens:
+        </p>
+        <ol>
+            <li>
+                An empty object is created.
+            </li>
+            <li><strong>The new object's <code>__proto__</code> property is set to the
+                constructor function's <code>prototype</code> property.</strong>
+                <br/>
+                In other words...  For every object that is created using a particular
+                constructor function, the object's <code>__proto__</code> will be set
+                to the constructor's <code>prototype</code> property.
+            </li>
+            <li>The <code>this</code> variable is set to the newly created
+                object and the constructor function is invoked.
+            </li>
+        </ol>
+        <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+};
+
+// Usage.
+var fred = new Person('Fred');
+console.log(fred.firstName);
+
+var barney = new Person('Barney');
+console.log(barney.firstName);
+        </div>
+        <p>
+            In this example, each person object has its own firstName and
+            lastName properties.
+        </p>
+        <p>Would you want to give Person methods in the same manner?</p>
+        <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+    this.speak = function () {console.log('Hello, my name is ' + this.firstName + '.');};
+};
+
+// Usage.
+var fred = new Person('Fred');
+fred.speak();
+
+var barney = new Person('Barney');
+barney.speak();
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>No, this would be inefficient, because each instance would have its
+            own copy of <code>speak()</code>.
+        </p>
+        <p>We would rather have all instances share a single copy of
+            <code>speak()</code>.
+        </p>
+        <p>We need to squeeze out every ounce of performance so we can do wonderful things like <a href="http://apps.playcanvas.com/will/doom3/gangnamstyle">this</a>!
+        </p>
+    </div>
+    <div class="example">
+        <p>The prototype is the place to put everything that is shared across
+            all instances of a type (all objects created from the same
+            constructor).
+        </p>
+        <div class="codeblock">
+// A simple example with only public data properties.
+var Person = function (firstName) {
+    this.firstName = firstName;
+};
+
+Person.prototype.speak = function () {console.log('Hello, my name is ' + this.firstName + '.');};
+
+// Usage.
+var fred = new Person('Fred');
+fred.speak();
+
+var barney = new Person('Barney');
+barney.speak();
+        </div>
+        <p>Now, when <code>speak()</code> is called, JS follows the prototype
+            chain up one level to the shared prototype, where it finds the
+            <code>speak</code> property whose value happens to be a function
+            object.
+        </p>
+        <p>
+            <img src="img/img002.jpg"/>
+        </p>
+    </div>
+    <div class="example">
+        <p>By default each constructor function is given its own empty
+            object that is assigned to the constructor's <code>prototype</code>
+            property.  This single object will serve as the prototype for all
+            objects created with that constructor.
+        </p>
+        <p>In order to reuse code, in some cases we don't want each constructor
+            to have the unique prototype object it is assigned by default.  In
+            order for several constructors to reference a common shared prototype,
+            we must set each constructor's <code>prototype</code> property to
+            that shared prototype.
+        </p>
+        <div class="codeblock">
+var Vehicle = function () {
+    this.startEngine = function () {console.log('Engine started.');};
+    this.stopEngine  = function () {console.log('Engine stopped.');};
+};
+
+var Car = function () {
+    // ...
+};
+Car.prototype = new Vehicle();
+Car.prototype.soundHorn = function () {console.log('Beep!  Beep!');};
+
+var Truck = function () {
+    // ...
+};
+Truck.prototype = new Vehicle();
+Truck.prototype.soundHorn = function () {console.log('Honk!  Honk!')};
+
+var yugo = new Car();
+yugo.startEngine();
+yugo.soundHorn();
+yugo.stopEngine();
+
+var mac = new Truck();
+mac.startEngine();
+mac.soundHorn();
+mac.stopEngine();
+        </div>
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <h2>Augmenting Built-in Types</h2>
+    </div>
+    <div class="example">
+        <p>You have access to the <strong>constructors</strong> of all JS built-in types:
+            <ul>
+                <li><code>Object</code></li>
+                <li><code>Array</code></li>
+                <li><code>Function</code></li>
+                <li><code>Number</code></li>
+                <li><code>String</code></li>
+                <li><code>Boolean</code></li>
+            </ul>
+
+            This means that we can augment these built-in types by adding new properties to:
+            <ul>
+                <li><code>Object.prototype</code></li>
+                <li><code>Array.prototype</code></li>
+                <li><code>Function.prototype</code></li>
+                <li><code>Number.prototype</code></li>
+                <li><code>String.prototype</code></li>
+                <li><code>Boolean.prototype</code></li>
+            </ul>
+        </p>
+        <div class="codeblock">
+String.prototype.trim = function () {
+    return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1");
+}
+
+var text = '           Yabba Dabba Dooo            ';
+console.log(text.trim());
+        </div>
+
+        <p>Augmenting in this manner is similar to writing extension methods in C#.
+        </p>
+
+    </div>
+</div>
+
+<!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <h2>Key Points</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>JavaScript is a "low resistance" language.<br />
+                It's flexible and lets you do pretty much anything you want to. <br />
+                Don't shoot your foot!
+            </li>
+            <li>JavaScript is a prototypal language. <br />
+                Learn to think this way and "work with the grain."
+            </li>
+        </ul>
     </div>
 </div>
 
 </body>
+
 </html>
