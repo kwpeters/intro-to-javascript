@@ -648,10 +648,10 @@ console.log(barney.firstName + ' ' + barney.lastName);
     </div>
 
     <div class="example">
-        <p>Notice how you are no longer <em>declaring</em> the form of
+        <h3>Notice how you are no longer <em>declaring</em> the form of
             your objects at compile time, but rather building them up
             at runtime.
-        </p>
+        </h3>
     </div>
 </div>
 
@@ -848,11 +848,11 @@ betty.speak();    // Call the function in the "speak" property with "this" set t
             the methods on an object at runtime, because they are stored just
             like any other property... as a key-value pair in the hashtable.
         </p>
-        <p>
+        <h3>
             Notice how in the above example, we were able to reuse the
             implementation of a member
             function <strong>without</strong> using inheritance.
-        </p>
+        </h3>
     </div>
     <div class="example">
         <p>4.  Functions can be declared within the scope of an outer
@@ -868,6 +868,9 @@ betty.speak();    // Call the function in the "speak" property with "this" set t
                 inner function.
             </dd>
         </dl>
+
+        <h3>Closures are commonly used to keep values private.</h3>
+
         <div class="codeblock">
 var makeCar = function (name) {
     var ignition = {
@@ -910,6 +913,7 @@ herbie.changeOil();
                by the JS runtime.  It contains <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype">several properties and methods</a>.
         </p>
 </div>
+
 
 <!-- ******************************************************************* -->
 <div class="section">
@@ -1170,13 +1174,72 @@ mac.stopEngine();
     </div>
 </div>
 
+
+
 <!-- ******************************************************************* -->
+<div class="section">
+    <div class="section-heading">
+        <h2>Private Members</h2>
+    </div>
+    <div class="example">
+        <ul>
+            <li>The above examples only created public properties.</li>
+            <li>Private data cannot be attached to <code>this</code>, because that would make it publicly accessible.</li>
+            <li>To create private members, we wrap the constructor in a closure.</li>
+        </ul>
+
+        <div class="codeblock">
+var Vehicle = (function () {
+
+    // Private data member.
+    var privateNumWheels;
+
+    // Private method.
+    var start = function () {
+        console.log('Vehicle started.')
+    };
+
+    // Constructor
+    function Vehicle(numWheels, name) {
+        privateNumWheels = numWheels;
+
+        // A public data member.
+        this.name = name;
+    }
+
+    // Public member function
+    Vehicle.prototype.getNumWheels = function () {
+        return privateNumWheels;
+    };
+
+    // Public member function
+    Vehicle.prototype.start = function () {
+        // Delegate to the private (captured) function.
+        return start();
+    };
+
+    return Vehicle;
+})();
+
+var v = new Vehicle(4, 'Herbie');
+v.start();
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<!-- ******************************************************************* -->
+
 <div class="section">
     <div class="section-heading">
         <h2>Augmenting Built-in Types</h2>
     </div>
     <div class="example">
-        <p>You have access to the <strong>constructors</strong> of all JS built-in types:
+        <p>You have access to the <strong>constructors</strong> of all JS built-in types:</p>
             <ul>
                 <li><code>Object</code></li>
                 <li><code>Array</code></li>
@@ -1195,7 +1258,6 @@ mac.stopEngine();
                 <li><code>String.prototype</code></li>
                 <li><code>Boolean.prototype</code></li>
             </ul>
-        </p>
         <div class="codeblock">
 String.prototype.trim = function () {
     return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1");
