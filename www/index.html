@@ -1134,10 +1134,11 @@ var barney = new Person('Barney');
 console.log(barney.firstName);
         </div>
         <p>
-            In this example, each person object has its own firstName and
-            lastName properties.
+            In this example, each person object has its own firstName property.
         </p>
-        <p>Would you want to give Person methods in the same manner?</p>
+        <p>
+            Would you want to give Person methods in the same manner?
+        </p>
         <div class="codeblock">
 // A simple example with only public data properties.
 var Person = function (firstName) {
@@ -1212,17 +1213,21 @@ var Vehicle = function () {
     this.startEngine = function () {console.log('Engine started.');};
     this.stopEngine  = function () {console.log('Engine stopped.');};
 };
+var vehicleProto = new Vehicle();
 
 var Car = function () {
     // ...
 };
-Car.prototype = new Vehicle();
+Car.prototype = Object.create(vehicleProto);
 Car.prototype.soundHorn = function () {console.log('Beep!  Beep!');};
 
 var Truck = function () {
     // ...
 };
-Truck.prototype = new Vehicle();
+
+// Doing the following makes cars and trucks share a common prototype.
+Truck.prototype = Object.create(vehicleProto);
+
 Truck.prototype.soundHorn = function () {console.log('Honk!  Honk!')};
 
 var yugo = new Car();
@@ -1235,8 +1240,12 @@ mac.startEngine();
 mac.soundHorn();
 mac.stopEngine();
         </div>
+        <p>
+            <img src="img/img003.png"/>
+        </p>
     </div>
 </div>
+
 
 
 
@@ -1250,6 +1259,7 @@ mac.stopEngine();
             <li>The above examples only created public properties.</li>
             <li>Private data cannot be attached to <code>this</code>, because that would make it publicly accessible.</li>
             <li>To create private members, we wrap the constructor in a closure.</li>
+            <li>This is often done using the Immediately Invoked Function Expression (IIFE) pattern.</li>
         </ul>
 
         <div class="codeblock">
