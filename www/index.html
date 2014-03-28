@@ -1036,6 +1036,10 @@ myObj = {
 
 // Called in a method context.
 myObj.sayHello();
+
+// You would not want to do this.  Inside method(), "this" will be set to the
+// the global object.
+// method();
         </div>
     </div>
 
@@ -1188,7 +1192,7 @@ barney.speak();
             object.
         </p>
         <p>
-            <img src="img/img002.jpg"/>
+            <img src="img/img002.png"/>
         </p>
     </div>
     <div class="example">
@@ -1324,11 +1328,19 @@ String.prototype.trim = function () {
 }
 
 var text = '           Yabba Dabba Dooo            ';
-console.log(text.trim());
+console.log('#' + text.trim() + '#');
         </div>
 
-        <p>Augmenting in this manner is similar to writing extension methods in C#.
-        </p>
+        <ul>
+            <li>
+                Augmenting in this manner is similar to writing extension methods in C#.
+            </li>
+            <li>
+                Doing this is generally frowned upon, because it is a little
+                dangerous.  Multiple scripts may enhance the same type with
+                identically named functions the behave differently.
+            </li>
+        </ul>
 
     </div>
 </div>
