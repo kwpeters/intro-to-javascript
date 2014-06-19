@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<a id="0"></a>
     <meta charset="UTF-8">
     <title>Intro to JavaScript</title>
 
@@ -27,47 +28,109 @@
 
     <p class="lead">
         Based on Douglas Crockford's presentation
-        <a href="http://www.youtube.com/watch?v=v2ifWcnQs6M">The JavaScript Programming Language
-        </a>.
+        <a href="http://youtu.be/v2ifWcnQs6M?t=9s" target="_blank">The JavaScript Programming Language</a>.
     </p>
+	<p class="note">
+		It is encouraged that users modify and play around with the code examples in this tutorial for a better learning experience.
+	</p>
 </div>
 
+<!-- ********************** Table of Contents ************************** -->
 
-<!-- ******************************************************************* -->
 <div class="section">
+	<div class="section-heading">
+		<h2>Table of Contents</h2>
+		<p align="justify">
+			<a href="#1">JavaScript</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=44s" target="_blank">0:44 </a>&emsp;|&emsp;
+			<a href="#2">History</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=3m50s" target="_blank">3:50</a>&emsp;|&emsp;
+			<a href="#3">Key Tenets</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=10m38s" target="_blank">10:38</a>&emsp;|&emsp;
+			<a href="#4">Values</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=13m22s" target="_blank">13:22</a>&emsp;|&emsp;
+			<a href="#5">Number</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=13m34s" target="_blank">13:34</a>&emsp;|&emsp;
+			<a href="#6">NaN</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=14m30s" target="_blank">14:30</a>&emsp;|&emsp;
+			<a href="#7">Number()</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=15m27s" target="_blank">15:27</a>&emsp;|&emsp;
+			<a href="#8">Math Object</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=16m37s" target="_blank">16:37</a>&emsp;|&emsp;
+			<a href="#9">Strings</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=17m12s" target="_blank">17:12</a>&emsp;|&emsp;
+			<a href="#10">Boolean</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=19m20s" target="_blank">19:20</a>&emsp;|&emsp;
+			<a href="#11">undefined and null</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=19m45s" target="_blank">19:45</a>&emsp;|&emsp;
+			<a href="#12">Falsy and Truthy</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=20m33s" target="_blank">20:33</a>&emsp;|&emsp;
+			<a href="#13">Objects</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=21m44s" target="_blank">21:44</a>&emsp;|&emsp;
+			<a href="#14">Loose Typing</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=22m58s" target="_blank">22:58</a>&emsp;|&emsp;
+			<a href="#15">Semicolons</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=23m26s" target="_blank">23:26</a>&emsp;|&emsp;
+			<a href="#16">Curly Brace Placement</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=23m26s" target="_blank">23:26</a>&emsp;|&emsp;
+			<a href="#17">Identifiers</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=23m43s" target="_blank">23:43</a>&emsp;|&emsp;
+			<a href="#18">Reserved Words</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=24m59s" target="_blank">24:59</a>&emsp;|&emsp;
+			<a href="#19">Comments</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=25m32s" target="_blank">25:32</a>&emsp;|&emsp;
+			<a href="#20">Operators</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=25m41s" target="_blank">25:41</a>&emsp;|&emsp;
+			<a href="#21">+</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=25m53s" target="_blank">25:53</a>&emsp;|&emsp;
+			<a href="#22">Equality Operators</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=27m20s" target="_blank">27:20</a>&emsp;|&emsp;
+			<a href="#23">&&</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=28m23s" target="_blank">28:23</a>&emsp;|&emsp;
+			<a href="#24">||</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=29m4s" target="_blank">29:04</a>&emsp;|&emsp;
+			<a href="#25">Statements</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=30m46s" target="_blank">30:46</a>&emsp;|&emsp;
+			<a href="#26">Scope</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=36m45s" target="_blank">36:45</a>&emsp;|&emsp;
+			<a href="#27">Maker Functions</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=40m58s" target="_blank">40:58</a>&emsp;|&emsp;
+			<a href="#28">Object Augmentation</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=44m35s" target="_blank">44:35</a>&emsp;|&emsp;
+			<a href="#29">Object Linkage/Prototypal Inheritance</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=45m21s" target="_blank">45:21</a>&emsp;|&emsp;
+			<a href="#30">Arrays</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=54m3s" target="_blank">54:03</a>&emsp;|&emsp;
+			<a href="#31">Functions</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=1h1m32s" target="_blank">1:01:32</a>&emsp;|&emsp;
+			<a href="#32">Method and Function Forms of Invocation</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=1h7m48s" target="_blank">1:07:48</a>&emsp;|&emsp;
+			<a href="#33">Constructor Invocation</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=1h10m48s" target="_blank">1:10:48</a>&emsp;|&emsp;
+			<a href="#34">Private Members</a> &emsp;|&emsp;
+			<a href="#35">Augmenting Built-in Types</a> - <a href="http://youtu.be/v2ifWcnQs6M?t=1h13m15s" target="_blank">1:13:15</a>&emsp;|&emsp;
+			<a href="#36">Key Points</a>
+		</p>
+	</div>
+</div>
+
+<!-- ************************* JavaScript ****************************** -->
+
+<div class="section">
+	<a id="1"></a>
     <div class="section-heading">
         <h2>JavaScript is the world's most misunderstood programming language.</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=44s" target="_blank">0:44 </a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 </div>
 <ul>
-    <li>It has nothing to do with Java.</li>
-    <li><i>"Script"</i> makes it sound incomplete.</li>
-    <li>It has some design errors.  Some have been fixed.</li>
-    <li>It has been type cast as <i>"the language of the browser."</i>
-        <li>People assume that the difficulty with web programming is caused by JS.</li>
-    </li>
-    <li>ECMA did not do a good job in writing the ECMAScript standard.</li>
+    <li>It has nothing to do with Java</li>
+    <li><i>"Script"</i> makes it sound incomplete</li>
+    <li>It has some design errors; Some have been fixed</li>
+    <li>It has been type cast as <i>"the language of the browser"</i></li>
+    <li>People assume that the difficulty with web programming is caused by JS</li>
+    <li>ECMA did not do a good job in writing the ECMAScript standard</li>
 </ul>
 
+<!-- ************************** History ******************************** -->
+
 <div class="section">
+	<a id="2"></a>
     <div class="section-heading">
         <h2>History</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=3m50s" target="_blank">3:50</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <ul>
-        <li>1992 - James Gosling at Sun created Oak</li>
-        <li>1995 - Netscape determined that Java was too heavy so Brendan Eich created LiveScript</li>
-        <li>The web was seen as the way to break away from Microsoft.</li>
-        <li>Sun and Netscape created an alliance.</li>
-        <li>1996 - Microsoft needed to compete in this area, so the reverse engineered JavaScript to get JScipt.</li>
-        <li>Standardized ECMAScript so that Microsoft could not assume control of direction.</li>
+        <li>1992 - James Gosling at Sun created Oak, a successor to C++, which was later renamed to Java</li>
+        <li>1995 - Netscape determined that Java was too heavy for browsers so Brendan Eich created LiveScript</li>
+        <li>The web was seen as the way to break away from Microsoft</li>
+        <li>Sun and Netscape created an alliance to compete with Microsoft</li>
+		<li>Sun wanted Java to be the language of the browser; Netscape insisted on using LiveScript</li>
+		<li>Marc Andreessen, founder of Netscape, changed the name of LiveScript to JavaScript</li>
+        <li>1996 - Microsoft needed to compete in this area, so they reverse engineered JavaScript to get JScipt</li>
+        <li>Standardized ECMAScript so that Microsoft could not assume control of direction</li>
         <li>1998 - ECMAScript</li>
-        <li>We are now at ECMAScript 5 and waiting for ECMAScript 6.</li>
+        <li>We are now at ECMAScript 5 and waiting for ECMAScript 6 in late 2014</li>
     </ul>
 </div>
 
+<!-- ************************ Key Tenets ******************************* -->
+
 <div class="section">
+	<a id="3"></a>
     <div class="section-heading">
         <h2>Key Tenets</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=10m38s" target="_blank">10:38</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <ul>
         <li>Load and go delivery (delivered as textual source code)</li>
@@ -79,9 +142,14 @@
     </ul>
 </div>
 
+<!-- ************************** Values ********************************* -->
+
 <div class="section">
+	<a id="4"></a>
     <div class="section-heading">
         <h2>Values</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=13m22s" target="_blank">13:22</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <ul>
         <li>Number</li>
@@ -93,30 +161,37 @@
     </ul>
 </div>
 
+<!-- ************************** Number ********************************* -->
+
 <div class="section">
+	<a id="5"></a>
     <div class="section-heading">
         <h2>Number</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=13m34s" target="_blank">13:34</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
-    <ul>
-        <li>There is <em>only one</em> number type (64-bit float a.k.a. Double)</li>
-    </ul>
-
-    <div class="codeblock">
+	<div class="example">
+        <p>There is <em>only one</em> number type (64-bit float a.k.a. Double).</p>
+		<p>The problem with floating point numbers is that 0.1 + 0.2 does NOT equal 0.3.</p>
+		<div class="codeblock">
 var sum = 0.1 + 0.2
 console.log('0.1 + 0.2 = ' + sum);
-    </div>
-
+		</div>
+	</div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- *************************** NaN *********************************** -->
 
 <div class="section">
+	<a id="6"></a>
     <div class="section-heading">
-        <p>15:25</p>
         <h2>NaN</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=14m30s" target="_blank">14:30</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
+		<p>NaN: Not a Number.</p>
         <p>NaN is the result of invalid operations.</p>
         <div class="codeblock">
 console.log('0/0 is ' + 0/0);
@@ -146,11 +221,14 @@ console.log('typeof NaN is ' + typeof NaN);
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************************* Number() ******************************** -->
+
 <div class="section">
+	<a id="7"></a>
     <div class="section-heading">
-        <p>16:39</p>
         <h2>Number()</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=15m27s" target="_blank">15:27</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -181,15 +259,18 @@ console.log('parseInt("10", 16) is ' + parseInt("10", 16));
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- *********************** Math Object ******************************* -->
+
 <div class="section">
+	<a id="8"></a>
     <div class="section-heading">
-        <p>17:12</p>
-        <h2>Math object</h2>
+        <h2>Math Object</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=16m37s" target="_blank">16:37</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
-        <p>The Math object contains the usual suspects.</p>
+        <p>The Math object contains the usual suspects:</p>
         <ul>
             <li>abs()</li>
             <li>floor()</li>
@@ -214,9 +295,14 @@ console.log('Math.round(1.5) is ' + Math.round(1.5));
     </div>
 </div>
 
+<!-- ************************** Strings ******************************** -->
+
 <div class="section">
+	<a id="9"></a>
     <div class="section-heading">
         <h2>Strings</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=17m12s" target="_blank">17:12</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -245,9 +331,14 @@ console.log('Math.round(1.5) is ' + Math.round(1.5));
     </div>
 </div>
 
+<!-- ************************* Boolean ********************************* -->
+
 <div class="section">
+	<a id="10"></a>
     <div class="section-heading">
         <h2>Boolean</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=19m20s" target="_blank">19:20</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <h3>Values</h3>
@@ -257,11 +348,15 @@ console.log('Math.round(1.5) is ' + Math.round(1.5));
         </ul>
     </div>
 </div>
-<!-- ******************************************************************* -->
+
+<!-- ******************** undefined and null *************************** -->
+
 <div class="section">
+	<a id="11"></a>
     <div class="section-heading">
-        <p>20:33</p>
         <h2>undefined and null</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=19m45s" target="_blank">19:45</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -289,11 +384,14 @@ console.log('value is ' + value);
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ******************* Falsy and Truthy Values *********************** -->
+
 <div class="section">
+	<a id="12"></a>
     <div class="section-heading">
-        <p>20:11</p>
-        <h2>Falsy and truthy values</h2>
+        <h2>Falsy and Truthy Values</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=20m33s" target="_blank">20:33</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -318,11 +416,14 @@ console.log('Boolean("0") is ' + Boolean("0"));          // Only empty strings a
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ********* Objects Are Hashtables/Maps/Dictionaries!!! ************* -->
+
 <div class="section">
+	<a id="13"></a>
     <div class="section-heading">
-        <p>22:55</p>
-        <h2>Objects are hashtables/Maps/Dictionaries!!!</h2>
+        <h2>Objects Are Hashtables/Maps/Dictionaries!!!</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=21m44s" target="_blank">21:44</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -373,11 +474,14 @@ console.log(JSON.stringify(emptyObj));
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************************ Loose Typing ***************************** -->
+
 <div class="section">
+	<a id="14"></a>
     <div class="section-heading">
-        <p>23:26</p>
-        <h2>Loose typing</h2>
+        <h2>Loose Typing</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=22m58s" target="_blank">22:58</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -394,16 +498,86 @@ function plusOperator(a, b) {
     return a + b;
 }
 
-console.log('plusOperator("Fred", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
+console.log('plusOperator("Fred ", "Flintstone") = ' + plusOperator("Fred ", "Flintstone"));
 console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
         </div>
     </div>
 </div>
 
+<!-- ************************* Semicolons ****************************** -->
 
 <div class="section">
+	<a id="15"></a>
+    <div class="section-heading">
+        <h2>Semicolons</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=23m26s" target="_blank">23:26</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+    </div>
+    <div class="example">
+        <ul>
+            <li>Semicolons are (unfortunately) optional</li>
+            <li>If you omit them, they will be automatically inserted</li>
+            <li>Prefer to leave operators at the end of your lines so a semicolon
+                will not get inserted for you
+            </li>
+            <li>Using a linting tool such as JSLint or JSHint (preferred) will
+                catch these cases
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- ********************* Curly Brace Placement *********************** -->
+
+<div class="section">
+	<a id="16"></a>
+    <div class="section-heading">
+        <h2>Curly Brace Placement</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=23m26s" target="_blank">23:26</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+    </div>
+    <div class="example">
+        <ul>
+            <li>
+                Use
+                <a href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style" target="_blank">K&R style</a>,
+                not <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style" target="_blank">Allman style</a>
+            </li>
+            <li>Allman style will get you into trouble with automatic semicolon insertion</li>
+        </ul>
+		<p><br>Do <b><u>NOT</b></u> do this:</p>
+		<div class="codeblock">
+function foo() {
+    return
+    {
+        first: 'Fred',
+        last:  'Flintstone'
+    };
+}
+console.log(JSON.stringify(foo()));
+		</div>
+		<p></p>
+		<p>Do this instead:</p>
+		<div class="codeblock">
+function foo() {
+    return {
+        first: 'Fred',
+        last:  'Flintstone'
+    };
+}
+console.log(JSON.stringify(foo()));
+		</div>
+    </div>
+</div>
+
+<!-- ************************* Identifiers ***************************** -->
+
+<div class="section">
+	<a id="17"></a>
     <div class="section-heading">
         <h2>Identifiers</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=23m43s" target="_blank">23:43</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -413,11 +587,47 @@ console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
         </ul>
     </div>
 </div>
-<!-- ******************************************************************* -->
+
+<!-- *********************** Reserved Words **************************** -->
 
 <div class="section">
+	<a id="18"></a>
+	<div class="section-heading">
+		<h2>Reserved Words</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=24m59s" target="_blank">24:59</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+	</div>
+	<div class="example">
+		<ul><li>Only words in <b>bold</b> are used in the language.</li></ul>
+		<p>
+			abstract<br>
+			boolean &emsp; <b>break</b> &emsp; byte<br>
+			<b>case &emsp; catch</b> &emsp; char &emsp; class &emsp; const &emsp; <b>continue</b><br>
+			debugger &emsp; <b>default &emsp; delete &emsp; do</b> &emsp; double<br>
+			<b>else</b> &emsp; enum &emsp; export &emsp; extends<br>
+			<b>false</b> &emsp; final &emsp; <b>finally</b> &emsp; float &emsp; <b>for &emsp; function</b><br>
+			goto<br>
+			<b>if</b> &emsp; implements &emsp; import &emsp; <b>in &emsp; instanceof</b> &emsp; int &emsp; interface<br>
+			long<br>
+			native &emsp; <b>new &emsp; null</b><br>
+			package &emsp; private &emsp; protected &emsp; public<br>
+			<b>return</b><br>
+			short &emsp; static &emsp; super &emsp; <b>switch</b> &emsp; synchronized<br>
+			<b>this &emsp; throw</b> &emsp; throws &emsp; transient &emsp; <b>true &emsp; try &emsp; typeof</b><br>
+			<b>var</b> &emsp; volatile &emsp; <b>void</b><br>
+			<b>while &emsp; with</b>
+		</p>
+	</div>
+</div>
+
+<!-- ************************** Comments ******************************* -->
+
+<div class="section">
+	<a id="19"></a>
     <div class="section-heading">
         <h2>Comments</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=25m32s" target="_blank">25:32</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -427,70 +637,63 @@ console.log('plusOperator(2, 3) = ' + plusOperator(2, 3));
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************************** Operators ****************************** -->
 
 <div class="section">
-    <div class="section-heading">
-        <h2>Semicolons</h2>
-    </div>
-    <div class="example">
-        <ul>
-            <li>Semicolons are (unfortunately) optional.</li>
-            <li>If you omit them, they will be automatically inserted.</li>
-            <li>Prefer to leave operators at the end of your lines so a semicolon
-                will not get inserted for you.
-            </li>
-            <li>Using a linting tool such as JSLint or JSHint (preferred) will
-                catch these cases.
-            </li>
-        </ul>
-    </div>
+	<a id="20"></a>
+	<div class="section-heading">
+		<h2>Operators</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=25m41s" target="_blank">25:41</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+	</div>
+	<div class="example">
+		<ul>
+			<li><b>Arithmetic</b><p>+ &emsp; - &emsp; * &emsp; / &emsp; %</p></li>
+			<li><b>Comparison</b><p>== &emsp; != &emsp; &#60; &emsp; > &emsp; &#60;= &emsp; >=</p></li>
+			<li><b>Logical</b><p>&& &emsp; || &emsp; !</p></li>
+			<li><b>Bitwise</b><p>& &emsp; | &emsp; ^ &emsp; >> &emsp; >>> &emsp; <<</p></li>
+			<li><b>Ternary</b><p>?:</p></li>
+		</ul>
+	</div>
 </div>
 
-<div class="section">
-    <div class="section-heading">
-        <h2>Curly Brace Placement</h2>
-    </div>
-    <div class="example">
-        <ul>
-            <li>
-                Use
-                <a href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style">K&R style</a>,
-                not <a href="http://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a>.
-            </li>
-            <li>Allman style will get you into trouble with automatic semicolon insertion.</li>
-        </ul>
-    </div>
-    <p>Dont' do this:</p>
-    <div class="codeblock">
-function foo() {
-    return
-    {
-        first: 'Fred',
-        last:  'Flintstone'
-    };
-}
-console.log(JSON.stringify(foo()));
-    </div>
-    <p></p>
-    <p>Do this instead:</p>
-    <div class="codeblock">
-function foo() {
-    return {
-        first: 'Fred',
-        last:  'Flintstone'
-    };
-}
-console.log(JSON.stringify(foo()));
-    </div>
+<!-- ******************************* + ********************************* -->
 
+<div class="section">
+	<a id="21"></a>
+	<div class="section-heading">
+		<h2>+</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=25m53s" target="_blank">25:53</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+	</div>
+	<div class="example">
+		<ul>
+			<li>Used for addition and concatenation</li>
+		</ul>
+		<div class="codeblock">
+console.log(1 + 2);
+console.log("1 + 2 = " + (1 + 2));
+console.log("concat" + "enation");
+console.log("$ + 3 + 4 = " + ('$' + 3 + 4));
+		</div>
+		<p></p>
+		<ul>
+			<li>Convert strings to numbers</li>
+		</ul>
+		<div class="codeblock">
+console.log(+"3" + (+"4"));
+		</div>
+	</div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- *********************** Equality Operators ************************ -->
+
 <div class="section">
+	<a id="22"></a>
     <div class="section-heading">
-        <p>28:20</p>
-        <h2>Equality operators</h2>
+        <h2>Equality Operators</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=27m20s" target="_blank">27:20</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -526,10 +729,14 @@ console.log('"5" === 5 is ' + ("5" === 5));
     </div>
 </div>
 
+<!-- ****************************** && ********************************* -->
 
 <div class="section">
+	<a id="23"></a>
     <div class="section-heading">
         <h2>&&</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=28m23s" target="_blank">28:23</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -546,6 +753,7 @@ if (a) {
     console.log(a);
 }
         </div>
+		<br>
         <div class="codeblock">
 var a = {name: 'Fred'};
 console.log(a && a.name);
@@ -553,9 +761,14 @@ console.log(a && a.name);
     </div>
 </div>
 
+<!-- ****************************** || ********************************* -->
+
 <div class="section">
+	<a id="24"></a>
     <div class="section-heading">
         <h2>||</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=29m4s" target="_blank">29:04</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -570,7 +783,7 @@ var b = a.name || 'Barney';
 console.log(b);
         </div>
 
-        <p>Using && and || together:</p>
+        <p><br>Using && and || together:</p>
         <div class="codeblock">
 var a = {name: 'Fred'};
 var b = (a && a.name) || 'Barney';
@@ -579,9 +792,14 @@ console.log(b);
     </div>
 </div>
 
+<!-- *************************** Statements **************************** -->
+
 <div class="section">
+	<a id="25"></a>
     <div class="section-heading">
         <h2>Statements</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=30m46s" target="_blank">30:46</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
@@ -598,12 +816,14 @@ for (var i = 0; i < myArray.length; ++i) {
     console.log(myArray[i]);
 }
                 </div>
-
-                <p></p>
+				
+                <br>
+				
                 <p>A special form of <code>for</code> that allows iteration of keys in an object:</p>
                 <div class="codeblock">
 var person={first: 'Fred', last: 'Flintstone'};
 for (var keyName in person) {
+
     // Don't iterate through inherited properties.
     if (person.hasOwnProperty(keyName)) {
         console.log('key: ' + keyName + ', value: ' + person[keyName]);
@@ -611,6 +831,7 @@ for (var keyName in person) {
 }
                 </div>
             </li>
+			
             <li>break
                 <ul>
                     <li>labeled breaks</li>
@@ -624,63 +845,75 @@ for (var keyName in person) {
     </div>
 </div>
 
+<!-- ****************************** Scope ****************************** -->
+
 <div class="section">
+	<a id="26"></a>
     <div class="section-heading">
         <h2>Scope</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=36m45s" target="_blank">36:45</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <ul>
-            <li>Blocks do not have scope.</li>
-            <li>Only functions have scope.</li>
-            <li>All variable declarations will be "hoisted" to the beginning of its function.</li>
-            <li>It is best to do this yourself.</li>
-            <li>If you don't declare a variable, it will become global.</li>
+            <li>Blocks do not have scope</li>
+            <li>Only functions have scope</li>
+            <li>All variable declarations will be "hoisted" to the beginning of its function</li>
+            <li>It is best to do this yourself</li>
+			<li>JavaScript has implied globals</li>
+            <li>If you don't declare a variable, it will become global</li>
         </ul>
 
         <div class="codeblock">
-function foo() {
-    var i = 'Fred';
-    var myArray = [1, 2, 3];
-
-    for (var i = 0; i < myArray.length; ++i) {
-        curValue = myArray[i];   // Oops! Forgot to declare. Will be global.
-        console.log(myArray[i]);
-    }
-
-    console.log(i);
+function foo(){
+        pi = 3.14;  // pi is NOT declared. Therefore, it is now global! 
+    var e = 2.718;  // e IS declared. Therefore, its scope is only within the function foo()
+    
+    console.log("Inside foo(): pi = " + pi);
+    console.log("Inside foo(): e = " + e);
 }
-foo();
-        </div>
 
+foo();
+console.log("Outside foo(): pi = " + pi);   // This is ok since pi is global
+console.log("Outside foo(): e = " + e);     // This will result in an error. e does not exist outside of foo()
+
+// This is problematic since ALL variables should be declared
+// Not declaring pi should have resulted in an error but didn't
+        </div>
+		<br>
         <h3>All functions should start with <code>"use strict";</code> to prevent
             against these types of errors.
         </h3>
+		
+		<br><p><code>"use strict";</code> helps against undeclared variables by throwing an error message.</p>
+		<p>Read more about <code>"use strict";</code> <a href="http://www.w3schools.com/js/js_strict.asp", target="_blank">here</a>.</p>
 
         <div class="codeblock">
-function foo() {
-    "use strict";
-
-    var i = 'Fred';
-    var myArray = [1, 2, 3];
-
-    for (var i = 0; i < myArray.length; ++i) {
-        curValue = myArray[i];   // Oops! Forgot to declare. Will be global.
-        console.log(myArray[i]);
-    }
-
-    console.log(i);
+function foo(){
+	"use strict";
+    
+        x = 3.14;  // This will result in an error since x is not declared
+    var y = 2.718;
+    
+    console.log("Inside foo(): x = " + x);
+    console.log("Inside foo(): y = " + y);
 }
+
 foo();
+console.log("Outside foo(): x = " + x);
+console.log("Outside foo(): y = " + y);
         </div>
     </div>
 </div>
 
+<!-- ************************* Maker Functions ************************* -->
 
-<!-- ******************************************************************* -->
 <div class="section">
+	<a id="27"></a>
     <div class="section-heading">
-        <p>42:00</p>
-        <h2>"Maker" functions</h2>
+        <h2>Maker Functions</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=40m58s" target="_blank">40:58</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
 
     <div class="example">
@@ -715,11 +948,14 @@ console.log(barney.firstName + ' ' + barney.lastName);
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ********************** Object Augmentation ************************ -->
+
 <div class="section">
+	<a id="28"></a>
     <div class="section-heading">
-        <p>45:20</p>
-        <h2>Object augmentation</h2>
+        <h2>Object Augmentation</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=44m35s" target="_blank">44:35</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p>When you need more properties on an object, there is no need
@@ -757,11 +993,14 @@ if (!barney.pet) {
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************ Object Linkage/Prototypal Inheritance **************** -->
+
 <div class="section">
+	<a id="29"></a>
     <div class="section-heading">
-        <p>47:43</p>
-        <h2>Object linkage/Prototypal inheritance</h2>
+        <h2>Object Linkage/Prototypal Inheritance</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=45m21s" target="_blank">45:21</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p>When you ask an object for a property's value and it is not found
@@ -801,14 +1040,10 @@ console.log('After deleting derived.myInteger:');
 console.log('derived.myInteger is ' + derived.myInteger);
 console.log('base.myInteger is ' + base.myInteger);
         </div>
-    </div>
-        <p>After line 10 above, the relationship
+		<br>After line 10 above, the relationship
             between <code>base</code> and <code>derived</code> looks like:
-        </p>
-        <p>
-            <img src="img/img001.jpg" />
-        </p>
     </div>
+    <img src="img/img001.jpg" />
     <div class="example">
         <p>This is the behavior for all properties (items in the hashtable),
             including methods.
@@ -816,22 +1051,92 @@ console.log('base.myInteger is ' + base.myInteger);
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ***************************** Arrays ****************************** -->
+
 <div class="section">
+	<a id="30"></a>
+	<div class="section-heading">
+		<h2>Arrays</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=54m3s" target="_blank">54:03</a>
+		<p class="right-align"><a href="#0">Top</a></p>
+	</div>
+	<div class="example">
+		<ul>
+			<li><em>Array</em> inherits from <em>Object</em></li>
+			<li>Indexes are converted to strings and used as names for retrieving values</li>
+			<li>Very efficient for sparse arrays</li>
+			<li>Not very efficient in most other cases</li>
+			<li>One advantage: No need to provide a length or type when creating an array</li>
+			<li>Arrays have a <em>length</em> member</li>
+			<li>Can be used with traditional <em>for</em> statement, but not with <em>for..in</em>
+			<li>Array literals use [ ] and can contain any number of expressions separated by commas</li>
+			<li>New items can be appended</li>
+			<li>The dot notation should not be used to access an array element</li>
+			<li>[ ] is preferred to <em>new Array()</em></li>
+			<li>Array Methods
+				<ul>
+					<li>concat</li>
+					<li>join</li>
+					<li>pop</li>
+					<li>push</li>
+					<li>slice</li>
+					<li>sort</li>
+					<li>splice</li>
+				</ul>
+			</li>
+			<li>Delete array elements just like deleting object properties. <code>delete array[index];</code> removes the element, but leaves a hole in the numbering</li>
+			<li><code>array.splice(index, 1);</code> removes the element and renumbers all the following elements</li>
+		</ul>
+		<div class="codeblock">
+var myNumber = 10;      // Change the value of this number!
+var myArray = [0, 1];
+var removeIndex;
+
+function fibonacci(n){
+    for (var i = 2, j = -1; j < (n - 2); i++, j++){
+		myArray[i] = myArray[i - 2] + myArray[i - 1];	// Appends new fibonacci number
+	}
+}
+fibonacci(myNumber);
+
+console.log("myArray = [" + myArray + "]");
+console.log("fibonacci(" + myNumber + ") = " + myArray[myNumber]);
+
+removeIndex = Math.floor(Math.random()*(myNumber + 1));
+
+console.log("Now deleting fibonacci(" + removeIndex + "): " + myArray[removeIndex]);
+delete myArray[removeIndex];
+console.log("myArray = [" + myArray + "]");
+
+console.log("Now removing fibonacci(" + removeIndex + "): " + myArray[removeIndex]);
+myArray.splice(removeIndex, 1);
+console.log("myArray = [" + myArray + "]");
+		</div>
+	</div>
+</div>
+
+<!-- *************************** Functions ***************************** -->
+
+<div class="section">
+	<a id="31"></a>
     <div class="section-heading">
-        <p>1:07</p>
         <h2>Functions</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=1h1m32s" target="_blank">1:01:32</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p><strong>Functions are objects!</strong>
         </p>
         <p>This means that:</p>
-        <p>1.  Functions are values.</p>
-        <p>Because functions are values, they can be used anywhere a normal
-            value can be used.  For example, they can be assigned to a
-            variable and can be passed as a parameter to another function.
-        </p>
-        <div class="codeblock">
+		<ol>
+			<li>
+				<p>
+					Functions are values. Because functions are values, they can 
+					be used anywhere a normal value can be used.  For example, 
+					they can be assigned to a variable and can be passed as a 
+					parameter to another function.
+				</p>
+				<div class="codeblock">
 var speak = function () {
     return 'yabba dabba doo!';
 };
@@ -843,16 +1148,18 @@ var doSomething = function (action) {
 };
 
 console.log('Calling doSomething(speak): ' + doSomething(speak));
-        </div>
-    </div>
-    <div class="example">
-        <p>2.  Functions are objects that happen to have a function call
-            operator method.  This all gets setup for you when you use the
-            "function" keyword in JS.  But this function call operator is
-            just one property in the object/hashtable.  There can be other
-            properties as well.
-        </p>
-        <div class="codeblock">
+				</div>
+				<br><br>
+			</li>
+			<li>
+				<p>
+					Functions are objects that happen to have a function call
+					operator method.  This all gets set up for you when you use the
+					"function" keyword in JS.  But this function call operator is
+					just one property in the object/hashtable.  There can be other
+					properties as well.
+				</p>
+				<div class="codeblock">
 var stop = function () {
     console.log('Stopping...');
 };
@@ -876,17 +1183,19 @@ actionArray[roll.order] = roll;
 for (var curIndex = 0; curIndex < actionArray.length; ++curIndex) {
     actionArray[curIndex]();
 }
-        </div>
-        <p>Remember that we can also store functions in these properties!</p>
-    </div>
-    <div class="example">
-        <p>3.  If a function is to be used as a method (member function),
-            then it will probably need access to the object itself.  This is
-            done using the <code>this</code> variable.  <code>this</code>
-            gets setup by the JS runtime whenenver a function is invoked as
-            a property of an object.
-        </p>
-        <div class="codeblock">
+				</div>
+				<p>Remember that we can also store functions in these properties!</p>
+				<br>
+			</li>
+			<li>
+				<p>
+					If a function is to be used as a method (member function),
+					then it will probably need access to the object itself.  This is
+					done using the <code>this</code> variable.  <code>this</code>
+					gets set up by the JS runtime whenever a function is invoked as
+					a property of an object.
+				</p>
+				<div class="codeblock">
 var speakFunc = function () {
     console.log('Hello, my name is ' + this.name + '.');
 };
@@ -902,36 +1211,35 @@ var betty = {
     speak: wilma.speak            // Just another reference to speakFunc.
 };
 betty.speak();    // Call the function in the "speak" property with "this" set to betty.
-        </div>
-        <p>
-            Keep in mind that you can <strong>reassign and delete</strong>
-            the methods on an object at runtime, because they are stored just
-            like any other property... as a key-value pair in the hashtable.
-        </p>
-        <h3>
-            Notice how in the above example, we were able to reuse the
-            implementation of a member
-            function <strong>without</strong> using inheritance.
-        </h3>
-    </div>
-    <div class="example">
-        <p>4.  Functions can be declared within the scope of an outer
-            function.  The inner function has access to the variables and
-            parameters of its outer functions.
-        </p>
-        <dl>
-            <dt>Closure</dt>
-            <dd>When an inner function holds references to variables in an
-                outer scope, the inner function is said to "close over" the
-                variables.  The JS runtime will make sure that outer scope
-                continues to exist as long as there are references to the
-                inner function.
-            </dd>
-        </dl>
-
-        <h3>Closures are commonly used to keep values private.</h3>
-
-        <div class="codeblock">
+				</div>
+				<p>
+					Keep in mind that you can <strong>reassign and delete</strong>
+					the methods on an object at runtime, because they are stored just
+					like any other property... as a key-value pair in the hashtable.
+				</p><br>
+				<h3>
+					Notice how in the above example, we were able to reuse the
+					implementation of a member
+					function <strong>without</strong> using inheritance.
+				</h3>
+				<br><br>
+			</li>
+			<li>
+				<p>
+					Functions can be declared within the scope of an outer
+					function.  The inner function has access to the variables and
+					parameters of its outer functions.<br>
+				</p>
+				<b>Closure</b>
+				<p>
+					When an inner function holds references to variables in an
+					outer scope, the inner function is said to "close over" the
+					variables.  The JS runtime will make sure that outer scope
+					continues to exist as long as there are references to the
+					inner function.
+				</p>
+				<h3>Closures are commonly used to keep values private.</h3>
+				<div class="codeblock">
 var makeCar = function (name) {
     var ignition = {
         // Closes over the name parameter.
@@ -955,42 +1263,49 @@ var makeCar = function (name) {
 
 var herbie = makeCar('Herbie');
 herbie.changeOil();
-        </div>
-        <p>Note:  In this example:</p>
-        <ul>
-            <li><code>changeOil()</code> looks like a public method. <br>
-                i.e. public properties are assigned to properties on the object itself.
-            </li>
-            <li><code>ignition</code> looks like a private data member. <br>
-                i.e. Private properties are closure variables.
-            </li>
-        </ul>
-    </div>
-
-    <div class="example">
-        <p>5.  Functions have a <code>__proto__</code>. <br />
-               <code>__proto__</code> for all functions is set to an object provided
-               by the JS runtime.  It contains <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype">several properties and methods</a>.
-        </p>
+				</div>
+				<p>Note:  In this example:</p>
+				<ul>
+					<li><code>changeOil()</code> looks like a public method. <br>
+						i.e. public properties are assigned to properties on the object itself.
+					</li>
+					<li><code>ignition</code> looks like a private data member. <br>
+						i.e. Private properties are closure variables.
+					</li>
+				</ul>
+				<br><br>
+			</li>
+			<li>
+				<p>
+					Functions have a <code>__proto__</code>. <br>
+					<code>__proto__</code> for all functions is set to an object provided
+					by the JS runtime.  It contains <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype" target="_blank">several properties and methods</a>.
+				</p>
+			</li>
+		</ol>
+	</div>
 </div>
 
+<!-- ************** Method and Function Forms of Invocation ************ -->
 
-<!-- ******************************************************************* -->
 <div class="section">
+	<a id="32"></a>
     <div class="section-heading">
-        <p>1:10:48</p>
-        <h2>Method and function forms of invocation</h2>
+        <h2>Method and Function Forms of Invocation</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=1h7m48s" target="_blank">1:07:48</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p>There are four ways to invoke a function:
         </p>
         <ol>
-            <li>in a <strong>function context</strong>. <br>
+            <li>In a <strong>function context</strong>. <br>
                 In this context, the programmer should assume that the
                 <code>this</code> variable is not available.  In actuality, the
                 JS runtime sets the <code>this</code> variable to the global
                 object, however, functions should avoid using it.
             </li>
+			<br>
             <li>In a <strong>method context</strong>. <br>
                 In this context, the JS runtime sets the <code>this</code>
                 variable to the object to the left of the <code>.</code>
@@ -1000,13 +1315,16 @@ herbie.changeOil();
                 the global object and it is unlikely that you will get the
                 intended result.
             </li>
+			<br>
             <li>In a <strong>constructor context</strong> (using the new operator). <br>
                 This will be discussed in a minute.
             </li>
-            <li>Using <strong><code>apply())</code></strong>.<br>
+			<br>
+            <li>Using <strong><code>apply()</code></strong>.<br>
                 Allows you to call a function and provide the <code>this</code> reference and the
                 parameters as an array.  This is an advanced topic not covered here.
             </li>
+			<br>
         </ol>
         <div class="codeblock">
 // A function that does not make use of "this."  It can be called in
@@ -1041,13 +1359,13 @@ myObj.sayHello();
 // the global object.
 // method();
         </div>
-    </div>
-
-    <div class="example">
-        <p>A note about nesting helper functions inside methods. <br>
+		<br>
+		<p>	
+			A note about nesting helper functions inside methods. <br>
             Whenever you call a function in a function context, <code>this</code> is bound to
             the global object.
         </p>
+		<br>
         <div class="codeblock">
 var myYugo = {name: 'Yugo'};
 myYugo.soundHorn = function () {
@@ -1061,14 +1379,14 @@ myYugo.soundHorn = function () {
 
 myYugo.soundHorn();
         </div>
-    </div>
-
-    <div class="example">
-        <p>To solve this, we must capture <code>this</code> using a closure. <br>
+		<br>
+		<p>
+			To solve this, we must capture <code>this</code> using a closure. <br>
             In the example below, we have removed implFunc's dependency on this by replacing
             it with the variable <code>self</code> (called "that" in the video) which closes
             over the value of <code>this</code> from the outer function.
         </p>
+		<br>
         <div class="codeblock">
 var myYugo = {name: 'Yugo'};
 myYugo.soundHorn = function () {
@@ -1083,14 +1401,16 @@ myYugo.soundHorn = function () {
 myYugo.soundHorn();
         </div>
     </div>
-
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************************* Constructor Invocation ****************** -->
+
 <div class="section">
+	<a id="33"></a>
     <div class="section-heading">
-        <p>1:10:48</p>
-        <h2>Constructor invocation</h2>
+        <h2>Constructor Invocation</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=1h10m48s" target="_blank">1:10:48</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p>A function is invoked in a constructor context whenever it is
@@ -1133,12 +1453,14 @@ console.log(fred.firstName);
 var barney = new Person('Barney');
 console.log(barney.firstName);
         </div>
+		<br>
         <p>
             In this example, each person object has its own firstName property.
         </p>
         <p>
             Would you want to give Person methods in the same manner?
         </p>
+		<br>
         <div class="codeblock">
 // A simple example with only public data properties.
 var Person = function (firstName) {
@@ -1153,18 +1475,21 @@ fred.speak();
 var barney = new Person('Barney');
 barney.speak();
         </div>
+		<!--
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
+		-->
+		<br>
         <p>No, this would be inefficient, because each instance would have its
             own copy of <code>speak()</code>.
         </p>
         <p>We would rather have all instances share a single copy of
             <code>speak()</code>.
         </p>
-        <p>We need to squeeze out every ounce of performance so we can do wonderful things like <a href="http://apps.playcanvas.com/will/doom3/gangnamstyle">this</a>!
+        <p>We need to squeeze out every ounce of performance so we can do wonderful things like <a href="http://apps.playcanvas.com/will/doom3/gangnamstyle" target="_blank">this</a>!
         </p>
     </div>
     <div class="example">
@@ -1187,15 +1512,15 @@ fred.speak();
 var barney = new Person('Barney');
 barney.speak();
         </div>
+		<br>
         <p>Now, when <code>speak()</code> is called, JS follows the prototype
             chain up one level to the shared prototype, where it finds the
             <code>speak</code> property whose value happens to be a function
             object.
         </p>
-        <p>
-            <img src="img/img002.png"/>
-        </p>
     </div>
+	<img src="img/img002.png"/>
+	<br><br><br>
     <div class="example">
         <p>By default each constructor function is given its own empty
             object that is assigned to the constructor's <code>prototype</code>
@@ -1239,20 +1564,20 @@ var mac = new Truck();
 mac.startEngine();
 mac.soundHorn();
 mac.stopEngine();
-        </div>
-        <p>
-            <img src="img/img003.png"/>
-        </p>
+        </div>	
     </div>
+	<br><br>
+	<img src="img/img003.png"/>
+	<br><br>
 </div>
 
+<!-- ************************ Private Members ************************** -->
 
-
-
-<!-- ******************************************************************* -->
 <div class="section">
+	<a id="34"></a>
     <div class="section-heading">
         <h2>Private Members</h2>
+		<p class="right-align"><a href="#0">Top</a></p><br>
     </div>
     <div class="example">
         <ul>
@@ -1298,49 +1623,49 @@ var Vehicle = (function () {
 var v = new Vehicle(4, 'Herbie');
 v.start();
         </div>
-
-
     </div>
 </div>
 
-
-
-
-<!-- ******************************************************************* -->
+<!-- ********************** Augmenting Built-in Types ****************** -->
 
 <div class="section">
+	<a id="35"></a>
     <div class="section-heading">
         <h2>Augmenting Built-in Types</h2>
+		<a href="http://youtu.be/v2ifWcnQs6M?t=1h13m15s" target="_blank">1:13:15</a>
+		<p class="right-align"><a href="#0">Top</a></p>
     </div>
     <div class="example">
         <p>You have access to the <strong>constructors</strong> of all JS built-in types:</p>
-            <ul>
-                <li><code>Object</code></li>
-                <li><code>Array</code></li>
-                <li><code>Function</code></li>
-                <li><code>Number</code></li>
-                <li><code>String</code></li>
-                <li><code>Boolean</code></li>
-            </ul>
+		<ul>
+			<li><code>Object</code></li>
+			<li><code>Array</code></li>
+			<li><code>Function</code></li>
+			<li><code>Number</code></li>
+			<li><code>String</code></li>
+			<li><code>Boolean</code></li>
+		</ul>
 
-            This means that we can augment these built-in types by adding new properties to:
-            <ul>
-                <li><code>Object.prototype</code></li>
-                <li><code>Array.prototype</code></li>
-                <li><code>Function.prototype</code></li>
-                <li><code>Number.prototype</code></li>
-                <li><code>String.prototype</code></li>
-                <li><code>Boolean.prototype</code></li>
-            </ul>
+		This means that we can augment these built-in types by adding new properties to:
+		<ul>
+			<li><code>Object.prototype</code></li>
+			<li><code>Array.prototype</code></li>
+			<li><code>Function.prototype</code></li>
+			<li><code>Number.prototype</code></li>
+			<li><code>String.prototype</code></li>
+			<li><code>Boolean.prototype</code></li>
+		</ul>
+		<br>
         <div class="codeblock">
+// This adds the trim functionality to String.prototype
 String.prototype.trim = function () {
-    return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1");
+    return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, "$1");	// We define trim to remove all whitespace
 }
 
 var text = '           Yabba Dabba Dooo            ';
 console.log('#' + text.trim() + '#');
         </div>
-
+		<br>
         <ul>
             <li>
                 Augmenting in this manner is similar to writing extension methods in C#.
@@ -1355,10 +1680,13 @@ console.log('#' + text.trim() + '#');
     </div>
 </div>
 
-<!-- ******************************************************************* -->
+<!-- ************************** Key Points ***************************** -->
+
 <div class="section">
+	<a id="36"></a>
     <div class="section-heading">
         <h2>Key Points</h2>
+		<p class="right-align"><a href="#0">Top</a></p><br>
     </div>
     <div class="example">
         <ul>
@@ -1366,6 +1694,7 @@ console.log('#' + text.trim() + '#');
                 It's flexible and lets you do pretty much anything you want to. <br />
                 Don't shoot your foot!
             </li>
+			<br>
             <li>JavaScript is a prototypal language. <br />
                 Learn to think this way and "work with the grain."
             </li>
