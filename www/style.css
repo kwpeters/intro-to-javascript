@@ -6,19 +6,32 @@ body {
 .section-heading {
     margin: 30px 0px 20px 0px;
     color: white;
-    background-color: rgba(25, 25, 25, 0.7);
+    background-color: rgba(25, 25, 25, 0.75);
     padding: 5px;
     border-radius:  5px;
 }
 
+.section-heading a { color:#5AA5E8; }
+.section-heading a:hover { color:#9AD0FF; text-decoration:none; }
+.section-heading a:active { color:#4D95D4; }
+
+
 .example {
-    margin: 25px 0px 25px 25px;
+    margin: -15px 0px 0px 25px;
     padding: 15px;
 }
+
+.example a { color:#5AA5E8; }
+.example a:hover { color:#9AD0FF; text-decoration:none; }
+.example a:active { color:#4D95D4; }
 
 .example img {
     border: 2px solid rgba(0, 0, 0, 0.3);
     padding: 10px;
     border-radius: 5px;
     box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.4);
+}
+
+.right-align {
+	float: right;
 }

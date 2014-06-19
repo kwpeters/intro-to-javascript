@@ -346,6 +346,14 @@ p {
   line-height: 1.4;
 }
 
+.lead a { color:#5AA5E8; }
+.lead a:hover { color:#9AD0FF; text-decoration:none; }
+.lead a:active { color:#4D95D4; }
+
+.note {
+  margin-bottom: -15px;
+}
+
 small {
   font-size: 85%;
 }
@@ -447,8 +455,8 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   line-height: 40px;
 }
 
